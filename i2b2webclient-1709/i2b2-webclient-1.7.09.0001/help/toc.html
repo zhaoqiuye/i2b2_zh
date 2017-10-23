@@ -12,7 +12,7 @@
 
 <!--begin custom header content for this example-->
 		<style>
-    #treeDiv1 {background: #fff; padding:1em;}
+    #treeDiv1 {background: #fff; padding:1em;font-family: 微软雅黑;font-size:12px;}
 		</style>
 <!--end custom header content for this example-->
 	</head>
@@ -42,39 +42,39 @@ var tree;
         tree = new YAHOO.widget.TreeView("treeDiv1");
 
 
-		 var tmpNode = new YAHOO.widget.TextNode({ label:"i2b2 Find Terms", href:"ft.html#ftView", target:"right"}, tree.getRoot(), false);
-		 new YAHOO.widget.TextNode({ label:"Introduction", href:"ft.html#ftIntro", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Navigation", href:"ft.html#ftNavigation", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Searching Terms", href:"ft.html#ftSearch", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Searching Modifiers", href:"ft.html#ftModSearch", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Using Terms", href:"ft.html#ftUseTerms", target:"right"},  tmpNode, false)
-		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 Navigate Terms", href:"navTerms.html#ntView", target:"right"}, tree.getRoot(), false);
-		 new YAHOO.widget.TextNode({ label:"Introduction", href:"navTerms.html#ntIntro", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Navigation", href:"navTerms.html#ntNavigation", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Using Terms", href:"navTerms.html#ntUseTerms", target:"right"},  tmpNode, false)
-		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 Previous Query", href:"pq.html#pqView", target:"right"}, tree.getRoot(), false);
-		 new YAHOO.widget.TextNode({ label:"Introduction", href:"pq.html#pqIntro", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Navigation", href:"pq.html#pqNavigation", target:"right"},  tmpNode, false)
- 	 	 new YAHOO.widget.TextNode({ label:"Using a Previous Query", href:"pq.html#pqUsePq", target:"right"},  tmpNode, false)
-		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 Query Tool", href:"qt.html#qtView", target:"right"}, tree.getRoot(), false);
-		 new YAHOO.widget.TextNode({ label:"Introduction", href:"qt.html#qtIntro", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Creating a Query", href:"qt.html#qtCreateQuery", target:"right"},  tmpNode, false)
-	 	 new YAHOO.widget.TextNode({ label:"Running a Query", href:"qt.html#qtRunningQuery", target:"right"},  tmpNode, false)
-	 	 new YAHOO.widget.TextNode({ label:"Cancel a Query", href:"qt.html#qtCancelQuery", target:"right"},  tmpNode, false)
-	 	 new YAHOO.widget.TextNode({ label:"Saving a Query", href:"qt.html#qtSaveQuery", target:"right"},  tmpNode, false)
-	 	 new YAHOO.widget.TextNode({ label:"Printing a Query", href:"qt.html#qtPrintQuery", target:"right"},  tmpNode, false)
-		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 Temporal Query Tool", href:"tqt.html#tqtView", target:"right"}, tree.getRoot(), false);
-		 new YAHOO.widget.TextNode({ label:"Introduction", href:"tqt.html#tqtIntro", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Creating a Query", href:"tqt.html#tqtCreateQuery", target:"right"},  tmpNode, false)
-	 	 new YAHOO.widget.TextNode({ label:"Running a Query", href:"tqt.html#tqtRunningQuery", target:"right"},  tmpNode, false)
-	 	 new YAHOO.widget.TextNode({ label:"Cancel a Query", href:"tqt.html#tqtCancelQuery", target:"right"},  tmpNode, false)
-	 	 new YAHOO.widget.TextNode({ label:"Saving Query", href:"tqt.html#tqtSaveQueryGrp", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Printing a Query", href:"tqt.html#tqtPrintQuery", target:"right"},  tmpNode, false)
-		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 Workplace", href:"wp.html", target:"right"}, tree.getRoot(), false);
-		 new YAHOO.widget.TextNode({ label:"Introduction", href:"wp.html#wpIntro", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Navigation", href:"wp.html#wpNavigation", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Adding Items to Workplace view", href:"wp.html#wpAddToWp", target:"right"},  tmpNode, false)
-		 new YAHOO.widget.TextNode({ label:"Using Items in Workplace view", href:"wp.html#wpUseItems", target:"right"},  tmpNode, false)
+		 var tmpNode = new YAHOO.widget.TextNode({ label:"i2b2 发现项", href:"ft.html#ftView", target:"right"}, tree.getRoot(), false);
+		 new YAHOO.widget.TextNode({ label:"介绍", href:"ft.html#ftIntro", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"导航", href:"ft.html#ftNavigation", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"搜索条目", href:"ft.html#ftSearch", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"搜索修改", href:"ft.html#ftModSearch", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"使用条目", href:"ft.html#ftUseTerms", target:"right"},  tmpNode, false)
+		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 导航项", href:"navTerms.html#ntView", target:"right"}, tree.getRoot(), false);
+		 new YAHOO.widget.TextNode({ label:"介绍", href:"navTerms.html#ntIntro", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"导航", href:"navTerms.html#ntNavigation", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"使用条目", href:"navTerms.html#ntUseTerms", target:"right"},  tmpNode, false)
+		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 向前查询", href:"pq.html#pqView", target:"right"}, tree.getRoot(), false);
+		 new YAHOO.widget.TextNode({ label:"介绍", href:"pq.html#pqIntro", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"导航", href:"pq.html#pqNavigation", target:"right"},  tmpNode, false)
+ 	 	 new YAHOO.widget.TextNode({ label:"使用向前查询", href:"pq.html#pqUsePq", target:"right"},  tmpNode, false)
+		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 查询工具", href:"qt.html#qtView", target:"right"}, tree.getRoot(), false);
+		 new YAHOO.widget.TextNode({ label:"介绍", href:"qt.html#qtIntro", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"创建", href:"qt.html#qtCreateQuery", target:"right"},  tmpNode, false)
+	 	 new YAHOO.widget.TextNode({ label:"运行", href:"qt.html#qtRunningQuery", target:"right"},  tmpNode, false)
+	 	 new YAHOO.widget.TextNode({ label:"取消", href:"qt.html#qtCancelQuery", target:"right"},  tmpNode, false)
+	 	 new YAHOO.widget.TextNode({ label:"保存", href:"qt.html#qtSaveQuery", target:"right"},  tmpNode, false)
+	 	 new YAHOO.widget.TextNode({ label:"打印", href:"qt.html#qtPrintQuery", target:"right"},  tmpNode, false)
+		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 时态查询工具", href:"tqt.html#tqtView", target:"right"}, tree.getRoot(), false);
+		 new YAHOO.widget.TextNode({ label:"介绍", href:"tqt.html#tqtIntro", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"创建", href:"tqt.html#tqtCreateQuery", target:"right"},  tmpNode, false)
+	 	 new YAHOO.widget.TextNode({ label:"运行", href:"tqt.html#tqtRunningQuery", target:"right"},  tmpNode, false)
+	 	 new YAHOO.widget.TextNode({ label:"取消", href:"tqt.html#tqtCancelQuery", target:"right"},  tmpNode, false)
+	 	 new YAHOO.widget.TextNode({ label:"保存", href:"tqt.html#tqtSaveQueryGrp", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"打印", href:"tqt.html#tqtPrintQuery", target:"right"},  tmpNode, false)
+		 var tmpNode = new YAHOO.widget.TextNode({label:"i2b2 工厂", href:"wp.html", target:"right"}, tree.getRoot(), false);
+		 new YAHOO.widget.TextNode({ label:"介绍", href:"wp.html#wpIntro", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"导航", href:"wp.html#wpNavigation", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"添加条目", href:"wp.html#wpAddToWp", target:"right"},  tmpNode, false)
+		 new YAHOO.widget.TextNode({ label:"使用条目", href:"wp.html#wpUseItems", target:"right"},  tmpNode, false)
 
 //        for (var i = 0; i < Math.floor((Math.random()*4) + 3); i++) {
   //          var tmpNode = new YAHOO.widget.TextNode("label-" + i, tree.getRoot(), false);
