@@ -6,7 +6,7 @@
 	lstDomains: [
 		{ domain: "i2b2demo",
 		  name: "i2b2demo",
-		  urlCellPM: "http://192.168.214.128:9090/i2b2/services/PMService/",
+		  urlCellPM: "http://192.168.37.128:9090/i2b2/services/PMService/",
 		  allowAnalysis: true,
 		  debug: true
 		}

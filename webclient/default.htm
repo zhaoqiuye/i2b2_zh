@@ -889,7 +889,7 @@
                             <div class="qryButtonOccurs" style="float:left"><a id="queryPanelOccursB1"
                                                                                class="queryPanelButton"
                                                                                href="JavaScript:i2b2.CRC.ctrlr.QT.panelControllers[0].showOccurs()"
-                                                                               title="Select the minimum number of times this group's criterion has occured...">Occurs
+                                                                               title="Select the minimum number of times this group's criterion has occured..."><span class="occurs">Occurs</span>
                                 &gt; <span id="QP1Occurs">0</span>x</a></div>
                             <div class="qryButtonExclude" style="float:left"><a id="queryPanelExcludeB1"
                                                                                 class="queryPanelButton"
@@ -935,7 +935,7 @@
                             <div class="qryButtonOccurs" style="float:left"><a id="queryPanelOccursB2"
                                                                                class="queryPanelButton"
                                                                                href="JavaScript:i2b2.CRC.ctrlr.QT.panelControllers[1].showOccurs()"
-                                                                               title="Select the minimum number of times this group's criterion has occured...">Occurs
+                                                                               title="Select the minimum number of times this group's criterion has occured..."><span class="occurs">Occurs</span>
                                 &gt; <span id="QP2Occurs">0</span>x</a></div>
                             <div class="qryButtonExclude" style="float:left"><a id="queryPanelExcludeB2"
                                                                                 class="queryPanelButton"
@@ -970,7 +970,7 @@
                             <div class="qryButtonOccurs" style="float:left"><a id="queryPanelOccursB3"
                                                                                class="queryPanelButton"
                                                                                href="JavaScript:i2b2.CRC.ctrlr.QT.panelControllers[2].showOccurs()"
-                                                                               title="Select the minimum number of times this group's criterion has occured...">Occurs
+                                                                               title="Select the minimum number of times this group's criterion has occured..."><span class="occurs">Occurs</span>
                                 &gt; <span id="QP3Occurs">0</span>x</a></div>
                             <div class="qryButtonExclude" style="float:left"><a id="queryPanelExcludeB3"
                                                                                 class="queryPanelButton"
@@ -1181,7 +1181,7 @@
                             <option value="SUMMARY">Summary List View</option>
                         </select>
                     </div>
-                    Category:
+                    <span>Category:</span>
                     <select id="anaPluginCats" style="width:200px" onChange="i2b2.PLUGINMGR.view.list.Render();">
                         <option value="">Loading...</option>
                     </select>
@@ -1225,9 +1225,9 @@
         </div>
         <div class="PluginViewBox">
             <div id="anaPluginViewFrame" oncontextmenu="return false">
-                <div class="initialMsg"><a href="#" style="color:#6677aa"
-                                           onclick="jQuery('#pluginsMenu').qtip('show');return false;">Select a plugin
-                    to load</a></div>
+                <div class="initialMsg">
+                    <a href="#" style="color:#6677aa" onclick="jQuery('#pluginsMenu').qtip('show');return false;">Select a plugin to load</a>
+                </div>
             </div>
             <iframe id="anaPluginIFRAME" src="assets/blank.html" style="display:none"></iframe>
         </div>

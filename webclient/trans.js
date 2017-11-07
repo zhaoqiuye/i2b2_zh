@@ -15,19 +15,34 @@ jQuery(document).ready(function(){
             }
         });
     }
+
+    //default.htm页面
     translate("#tabNavigate div");
     translate("#tabFind div");
-    translate("#viewMode-Project");
-    translate(".queryLabel");
-    translate("#ontFindDisp a");
-    translate(".first-child button");
     translate("#runBoxText");
     translate("#queryPanelTitle1");
     translate("#queryTiming-button");
     translate("#addDefineGroup");
     translate("#removeDefineGroup");
     translate(".queryBalloon");
+    translate(".topmenu span");
+    translate("#PluginListBox span a:eq(2)");
+    translate("#crcFindButton a");
+    translate(".initialMsg a");
+    translate("#yuimenuitemlabel");
     jQuery("#ontFormFindName table option").each(function(){
+        translate(this);
+    });
+    jQuery("#crcFindStrategy option").each(function(){
+        translate(this);
+    });
+    jQuery("#menubutton2select option").each(function(){
+        translate(this);
+    }); 
+    jQuery("#crcFindCategory option").each(function(){
+        translate(this);
+    }); 
+    jQuery("#ontFindDisp a").each(function(){
         translate(this);
     });
     jQuery("#topBar a:lt(2)").each(function(){
@@ -60,7 +75,10 @@ jQuery(document).ready(function(){
     jQuery(".yui-nav li a").each(function(){
         translate(this);
     });
-    // jQuery(".qryButtonOccurs a").each(function(){
-    //     translate(this);
-    // });
+    jQuery(".queryLabel").each(function(){
+        translate(this);
+    });
+    jQuery(".qryButtonOccurs .occurs").each(function(){
+        translate(this);
+    });
 });

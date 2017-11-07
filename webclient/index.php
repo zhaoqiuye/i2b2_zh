@@ -30,21 +30,21 @@ Update: 05-03-17 (nw096):
 */
 
 
-$pmURL = "http://192.168.214.128:8080/i2b2/rest/PMService/getServices";
+$pmURL = "http://192.168.37.128:8080/i2b2/rest/PMService/getServices";
 $pmCheckAllRequests = false;
 
 $WHITELIST = array(
         "http" . (($_SERVER['SERVER_PORT'] == '443') ? 's' : '' ) . "://" . $_SERVER['HTTP_HOST'],
         "http://services.i2b2.org",
-        "http://192.168.214.128:9090",
-        "http://192.168.214.128:8080",
-        "http://192.168.214.128",
+        "http://192.168.37.128:9090",
+        "http://192.168.37.128:8080",
+        "http://192.168.37.128",
 );
 
 
 $BLACKLIST = array(
-        "http://192.168.214.128:9090/test",
-        "http://192.168.214.128:9090/test"
+        "http://192.168.37.128:9090/test",
+        "http://192.168.37.128:9090/test"
 );
 
 // There is nothing to configure below this line

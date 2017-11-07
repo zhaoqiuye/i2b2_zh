@@ -3582,7 +3582,7 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> Print Report</a>"+
 			"<div class='QRMainHeader'>i2b2 Query Report</div>"+
 			"<table id='queryDetailsTable'></table>"+
-			"<div class='descHead'>Query Definition</div>"+
+			"<div class='descHead'>Query Definition11</div>"+
 			"<table id='qdHeaderTable'></table>"+
 			"<table id='qdContainerTable'></table><br>"+
 			"<table id='temporalQryEventsContainerTable'></table><br>"+
