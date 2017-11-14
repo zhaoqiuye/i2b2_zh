@@ -237,7 +237,7 @@ i2b2.CRC.view.QT.enableSameTiming = function() {
 				//	queryTimingButton.getMenu().addItems([ 	 
 				//						{ text: "Selected groups occur in the same financial encounter", value: "SAMEVISIT" }]);	 
 					queryTimingButton.getMenu().addItems([ 	 
-										{ text: "Items Instance will be the samer", value: "SAMEINSTANCENUM" }]);	 
+										{ text: "Items Instance will be the same4", value: "SAMEINSTANCENUM" }]);	 
 					queryTimingButton.getMenu().render();
 		}
 		} else {
@@ -333,11 +333,11 @@ i2b2.CRC.view.QT.setPanelTiming = function(panelNum, sText) {
 	if (panelNum > 3) {return}
 	if (sText == "SAMEVISIT" )
 	{
-		$("queryPanelTimingB" + (panelNum) +  "-button").innerHTML = "Occurs in Same Encounter";	
+		$("queryPanelTimingB" + (panelNum) +  "-button").innerHTML = "Occurs in Same Encounter2";	
 		i2b2.CRC.ctrlr.QT.panelControllers[panelNum - 1].doTiming(sText);
 		i2b2.CRC.ctrlr.QT.panelControllers[panelNum - 1].refTiming.set('disabled', false);	
 	} else if (sText == "SAMEINSTANCENUM") {
-		$("queryPanelTimingB" + (panelNum) +  "-button").innerHTML = "Items Instance will be the same";	
+		$("queryPanelTimingB" + (panelNum) +  "-button").innerHTML = "Items Instance will be the same7";	
 		i2b2.CRC.ctrlr.QT.panelControllers[panelNum - 1].doTiming(sText);
 		i2b2.CRC.ctrlr.QT.panelControllers[panelNum - 1].refTiming.set('disabled', false);	
 	} else {
@@ -673,7 +673,7 @@ i2b2.events.afterCellInit.subscribe(
 			//o. = i2b2.h.getXNodeVal(ps[i1],'');
 			//this.model.events.push(o);
 			if (o.visual_attribute_type == "LA") {
-				newHTML += 	"			<div id=\"crcDlgResultOutput" + o.name + "\"><input type=\"checkbox\" class=\"chkQueryType\" name=\"queryType\" value=\"" + o.name + "\" " + checked + "/> " + o.description + "</div>";
+				newHTML += 	"			<div id=\"crcDlgResultOutput" + o.name + "\"><input type=\"checkbox\" class=\"chkQueryType\" name=\"queryType\" value=\"" + o.name + "\" " + checked + "/> " + "<span>"+o.description+"</span>" + "</div>";
 			}
 		}		
 		
@@ -1058,14 +1058,14 @@ i2b2.events.afterCellInit.subscribe(
 					if (sText == "0")
 					{
 						$('QPD1').style.background = '#FFFFFF';
-						$('queryPanelTitle1').innerHTML = 'Group 1';
+						$('queryPanelTitle1').innerHTML = '第1组';
 						i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set('disabled', false);
 					} else {
 						$('QPD1').style.background = '#D9ECF0';
-						$('queryPanelTitle1').innerHTML = 'Anchoring Observation';	
+						$('queryPanelTitle1').innerHTML = '固定观察';	
 						i2b2.CRC.ctrlr.QT.panelControllers[0].doTiming("SAMEINSTANCENUM");
 					    i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set('disabled', true);
-						i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set("label", "Items Instance will be the same");		
+						i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set("label", "项目实例相同");		
 
 
 					
@@ -1120,7 +1120,7 @@ i2b2.events.afterCellInit.subscribe(
 						//$("queryPanelTimingB" + (i+1) +  "-button").disabled = false;					
 						//$("queryPanelTimingB" + (i+1) +  "-button").innerHTML = "Occurs in Same Encounter";	
 						i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.set('disabled', false);					
-						i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.set("label",  "Occurs in Same Encounter");	
+						i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.set("label",  "发生相同的情况");	
 						if (YAHOO.util.Dom.inDocument(i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.getMenu().element)) {
 		
 							i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.getMenu().clearContent();
@@ -1129,7 +1129,7 @@ i2b2.events.afterCellInit.subscribe(
 							i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.getMenu().addItems([ 	 
 												{ text: "Occurs in Same Encounter", value: "SAMEVISIT" }]);	 
 							i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.getMenu().addItems([ 												
-												{ text: "Items Instance will be the same", value: "SAMEINSTANCENUM" }]);	 
+												{ text: "Items Instance will be the same10", value: "SAMEINSTANCENUM" }]);	 
 							i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.getMenu().render();
 						} else {
 							i2b2.CRC.ctrlr.QT.panelControllers[i].refTiming.itemData ={ text: "Treat Independently", value: "ANY",

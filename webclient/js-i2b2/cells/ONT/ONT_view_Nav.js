@@ -244,7 +244,7 @@ i2b2.events.afterCellInit.subscribe(
 						{ lazyload: true,
 						trigger: $('ontNavDisp'), 
 						itemdata: [
-							{ text: "Refresh All11",	onclick: { fn: i2b2.ONT.view.nav.doRefreshAll } }
+							{ text: "全部刷新",	onclick: { fn: i2b2.ONT.view.nav.doRefreshAll } }
 					] }  
 			); 
 			i2b2.ONT.view.nav.ContextMenu.subscribe("triggerContextMenu",i2b2.ONT.view.nav.ContextMenuValidate);			

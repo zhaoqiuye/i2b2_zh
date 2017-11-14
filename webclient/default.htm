@@ -168,12 +168,15 @@
     <!-- load i2b2 framework -->
     <script type="text/javascript" src="js-i2b2/i2b2_loader.js"></script>
     <script type="text/javascript" src="js-i2b2/i2b2_ui_config.js"></script>
-    <script type="text/javascript" src="trans.js"></script>
     <link type="text/css" href="assets/i2b2.css" rel="stylesheet"/>
     <link type="text/css" href="assets/i2b2-NEW.css" rel="stylesheet"/>
 
     <!-- other auxiliary javascript source files -->
     <script type="text/javascript" src="js-i2b2/hive/hive.ui.js"></script>
+
+    <!-- translate files -->
+    <script type="text/javascript" src="trans.js"></script>
+
     <script type="text/javascript">
         /****************************************************/
         /******************** INITIALIZE ********************/
@@ -295,8 +298,8 @@
                         i2b2.PLUGINMGR.view.list.Render();
 
                     }
-                    $('viewMode-Project').innerHTML = "Project: " + i2b2.PM.model.login_projectname;
-                    $('viewMode-User').innerHTML = "User: " + i2b2.PM.model.login_fullname;
+                    $('viewMode-Project').innerHTML = "项目: " + i2b2.PM.model.login_projectname;
+                    $('viewMode-User').innerHTML = "用户: " + i2b2.PM.model.login_fullname;
                     $('viewMode-User').title = i2b2.PM.model.userRoles;
                     if (i2b2.PM.model.otherAuthMethod) {
                         $('changePasswordLink').hide();
@@ -844,7 +847,7 @@
                 <div class="queryLabel" id="temporalConstraintLabel" style="width:120px">Temporal Constraint:&nbsp;
                 </div>
                 <div class="qryTemporalConstraint" id="temporalConstraintDiv" style="float:left;overflow:hidden">
-                    <input type="submit" id="queryTiming" name="queryTiming" value="Treat all groups independently">
+                    <input type="submit" id="queryTiming" name="queryTiming" value="独立处理所有组">
                     <select id="menubutton1select" name="menubutton1select">
                         <option value="ANY">Treat all groups independently</option>
                         <option value="SAMEVISIT">Selected groups occur in the same financial encounter</option>
@@ -857,7 +860,7 @@
             <div class="queryNameBar" id="defineTemporalBar" style="width:512px;display:none;">
                 <div class="qryTemporalConstraint" id="temporalConstraintDiv" style="float:left;overflow:hidden">
                     <input type="submit" id="defineTemporal" name="defineTemporal"
-                           value="Population in which events occur">
+                           value="事件发生的人口">
                     <select id="menubutton2select" name="menubutton2select">
                         <option value="0">Population in which events occur</option>
                         <option value="1">Event 1</option>
@@ -1083,8 +1086,7 @@
                         </div>
                     </div>
                     <center>
-                        <div class="temporalControl"><a href="JavaScript:i2b2.CRC.ctrlr.QT.doAddTemporal()">Add Temporal
-                            Relationship</a></div>&nbsp;<div class="temporalControl"><a
+                        <div class="temporalControl"><a href="JavaScript:i2b2.CRC.ctrlr.QT.doAddTemporal()">Add Temporal Relationship</a></div>&nbsp;<div class="temporalControl"><a
                             href="JavaScript:i2b2.CRC.ctrlr.QT.doRemoveTemporal()">Remove Last Temporal Relationship</a>
                     </div>
                     </center>
@@ -1773,15 +1775,15 @@
                  id="dialogQryRunResultType">
                 <div id="crcDlgResultOutputPRC">
                     <input type="checkbox" class="chkQueryType" name="queryType" value="PRC" checked="checked"/>
-                    Patient Count (aggregate number only)
+                    <span>Patient Count (aggregate number only)</span>
                 </div>
                 <div id="crcDlgResultOutputPRS">
                     <input type="checkbox" class="chkQueryType" name="queryType" value="PRS"/>
-                    Patient Set (list of matching patients)
+                    <span>Patient Set (list of matching patients)</span>
                 </div>
                 <div id="crcDlgResultOutputENS">
                     <input type="checkbox" class="chkQueryType" name="queryType" value="ENS"/>
-                    Encounter Set (list of matching encounters)
+                    <span>Encounter Set (list of matching encounters)</span>
                 </div>
             </div>
         </div>

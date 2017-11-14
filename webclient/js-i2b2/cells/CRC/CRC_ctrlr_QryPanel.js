@@ -166,7 +166,7 @@ function i2b2_PanelController(parentCtrlr) {
 	$("queryPanelTimingB" + (this.actualPanelIndex+1) + "-button").innerHTML = "Items Instance will be the same";
 	} else {
 	//	this.refTiming.innerHTML = "Treat Independently";
-	$("queryPanelTimingB" + (this.actualPanelIndex+1) + "-button").innerHTML = "Treat Independently";
+	$("queryPanelTimingB" + (this.actualPanelIndex+1) + "-button").innerHTML = "独立处理";
 	} 
 
 //		i2b2.CRC.view.QT.setPanelTiming(this.panelCurrentIndex + 1, pd.timing);
@@ -183,6 +183,7 @@ function i2b2_PanelController(parentCtrlr) {
 		if (pd.exclude) {
 			Element.addClassName(this.refButtonExclude,'queryPanelButtonSelected');
 			this.refBalloon.style.background = '#FF9999';
+			//this.refBalloon.innerHTML = 'none<br />of<br />these';
 			this.refBalloon.innerHTML = 'none<br />of<br />these';
 		} else {
 			Element.removeClassName(this.refButtonExclude,'queryPanelButtonSelected');

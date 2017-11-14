@@ -399,8 +399,8 @@ i2b2.ONT.view.find.ContextMenu = new YAHOO.widget.ContextMenu(
 			{ lazyload: true,
 			trigger: $('ontFindDisp'), 
 			itemdata: [
-				{ text: "Refresh All",	onclick: { fn: i2b2.ONT.view.find.doRefreshAll } },
-				{ text: "Find Modifiers",	onclick: { fn: i2b2.ONT.view.find.doShowModifiers } }
+				{ text: "全部刷新",	onclick: { fn: i2b2.ONT.view.find.doRefreshAll } },
+				{ text: "发现修饰符",	onclick: { fn: i2b2.ONT.view.find.doShowModifiers } }
 		] }  
 ); 
 //================================================================================================== //

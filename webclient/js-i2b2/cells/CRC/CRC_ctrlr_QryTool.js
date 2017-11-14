@@ -62,7 +62,7 @@ function QueryToolController() {
 		$('infoQueryStatusChart').innerHTML = "";
 		$('crc.temoralBuilder').hide();		
 		$('crc.innerQueryPanel').show();
-		this.panelControllers[0].refTitle.innerHTML =  'Group 1';
+		this.panelControllers[0].refTitle.innerHTML =  '第1组';
 		$("defineTemporal-button").innerHTML = "Population in which events occur";
 		i2b2.CRC.view.QT.setQueryTiming(0);
 		i2b2.CRC.view.QT.clearTemportal();
@@ -600,7 +600,7 @@ function QueryToolController() {
 		params.psm_result_output = '<result_output_list>'+result_output+'</result_output_list>\n';
 		
 		// create query object
-		 $('runBoxText').innerHTML = "Cancel Query";
+		 $('runBoxText').innerHTML = "取消查询";
 		i2b2.CRC.ctrlr.currentQueryStatus = new i2b2.CRC.ctrlr.QueryStatus($('infoQueryStatusText'));
 		i2b2.CRC.ctrlr.currentQueryStatus.startQuery(inQueryName, params);		
 	}
@@ -646,11 +646,11 @@ function QueryToolController() {
 					modal: true,
 					zindex: 700,
 					buttons: [{
-						text: "OK",
+						text: "确认",
 						handler: loopBackSubmit,
 						isDefault: true
 					}, {
-						text: "Cancel",
+						text: "取消",
 						handler: handleCancel
 					}]
 				});
@@ -1189,14 +1189,14 @@ function QueryToolController() {
 				var sText = defineTemporalButton.get("label");
 			
 			if (sText != "Population in which events occur")
-					this.panelControllers[i].refTitle.innerHTML =  'Anchoring Observation';
+					this.panelControllers[i].refTitle.innerHTML =  '固定观察';
 				else
-					this.panelControllers[i].refTitle.innerHTML =  'Group 1';
+					this.panelControllers[i].refTitle.innerHTML =  '第1组';
 
 			}
 			else
 			{
-				this.panelControllers[i].refTitle.innerHTML = "Group "+(index_offset+i+1);
+				this.panelControllers[i].refTitle.innerHTML = "第"+(index_offset+i+1)+"组";
 			}
 			this.panelControllers[i].setPanelRecord(index_offset+i, i);
 			if (i > 0) {
@@ -1229,9 +1229,9 @@ function QueryToolController() {
 	this._redrawPanelCount = function() {
 		var c = i2b2.CRC.model.queryCurrent.panels[i2b2.CRC.ctrlr.QT.temporalGroup].length; 
 		if (c == 1) {
-			var s = '1 Group';
+			var s = '1 组';
 		} else {
-			var s = c + ' Groups';
+			var s = c + ' 组';
 		}
 		$('groupCount').innerHTML = s;
 	}
@@ -1472,7 +1472,7 @@ function QueryToolController() {
                                  
                        + '          <br/> '
                                  
-                       + '         <input id="bytime2[' + this.tenporalBuilders + ']" name="bytime2[' + this.tenporalBuilders + ']" type="checkbox">And <select  id="byspan2[' + this.tenporalBuilders + ']" name="byspan2[' + this.tenporalBuilders + ']"  style="width:50px;"><option value="GREATER">&gt;</option><option value="GREATEREQUAL">&ge;</option><option value="EQUAL">=</option><option value="LESSEQUAL" selected>&le;</option><option value="LESS">&lt;</option></select> '
+                       + '         <input id="bytime2[' + this.tenporalBuilders + ']" name="bytime2[' + this.tenporalBuilders + ']" type="checkbox"><span>And</span> <select  id="byspan2[' + this.tenporalBuilders + ']" name="byspan2[' + this.tenporalBuilders + ']"  style="width:50px;"><option value="GREATER">&gt;</option><option value="GREATEREQUAL">&ge;</option><option value="EQUAL">=</option><option value="LESSEQUAL" selected>&le;</option><option value="LESS">&lt;</option></select> '
                        + '         <input id="bytimevalue2[' + this.tenporalBuilders + ']" name="bytimevalue2[' + this.tenporalBuilders + ']"  style="width:50px;" type="text" value="1"> '
                        + '          <select  id="bytimeunit2[' + this.tenporalBuilders + ']" name="bytimeunit2[' + this.tenporalBuilders + ']" style="width:100px;"> '
                        + '          <option  value="HOUR">hour(s)</option> '
@@ -1661,7 +1661,7 @@ function QueryToolController() {
 			} else if  (v_querytiming == "TEMPORAL") {
 					win_html_inner += "Define sequence of events";
 			} else {
-					win_html_inner +=  "Items Instance will be the same";
+					win_html_inner +=  "Items Instance will be the same2";
 			}
 
 			win_html_inner += "</span></td></tr>";
@@ -2581,17 +2581,17 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 		}
 		else{
 			if(previewQueryOnly)
-				text = 'The query is entitled "' + queryObj.name + '"';
+				text = '<span>The query entitled</span> "' + queryObj.name + '"';
 			else
-				text = 'The query entitled "' + queryObj.name ;
+				text = '<span>The query entitled</span> "' + queryObj.name ;
 		}
 		
 		if(dateInfoProvided == true && !previewQueryOnly){
-		text = (qrNameNotProvided ? 'The query "' : '') + text + '" submitted on ' +  
-			start_date.toLocaleString('en-GB') + ', was successfully completed on '+  
-			end_date.toLocaleString('en-GB') + '. This query was performed by "'+ username + 
-			'". The search was completed in ' + 
-			diff.toString() + ' seconds.' ;
+		text = (qrNameNotProvided ? 'The query "' : '') + text + '" <span>submitted on</span> ' +  
+			start_date.toLocaleString('en-GB') + ', <span>was successfully completed on</span> '+  
+			end_date.toLocaleString('en-GB') + '. <span>This query was performed by</span> "'+ username + 
+			'". <span>The search was completed in</span> ' + 
+			diff.toString() + ' <span>seconds</span>.' ;
 		}
 		
 		if(QueryReportWin)
@@ -2681,11 +2681,11 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 						  panelTiming = "Occurs in Same Encounter";
 						  break;
 						case "SAMEINSTANCENUM":
-						  panelTiming = "Items Instance will be the same";
+						  panelTiming = "Items Instance will be the same3";
 						  break;
 						}
 						
-					var panelItemOccurrenceText = "# of times an item is recorded is > " + panelData.occurs;
+					var panelItemOccurrenceText = "# <span>of times an item is recorded is</span> > " + panelData.occurs;
 					
 					panelData.items.each(function(itemData){
 						var data = itemData;
@@ -3579,7 +3579,7 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 	this.PrintQueryBody = 
 			"<div id=\"QueryReportLoading\"><img src=\"js-i2b2/cells/CRC/assets/loading.gif\" alt=\"Loading\"/></div>"+
 			"<div id='QueryReportContainer' class='no-show'>"+
-			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> Print Report</a>"+
+			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> <span>Print Report</span></a>"+
 			"<div class='QRMainHeader'>i2b2 Query Report</div>"+
 			"<table id='queryDetailsTable'></table>"+
 			"<div class='descHead'>Query Definition11</div>"+
@@ -3589,7 +3589,7 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 			"<table id='temporalQryEventsRelationsTable'></table>"+
 			"<div id='qrsTitle' class='descHead'>Query Results</div>"+
 			"<br><div id='queryResultsContainer'></div>" + 
-			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> Print Report</a>"+
+			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> <span>Print Report</span></a>"+
 			"</div>";
 			
 	this.PrintQueryBodyForPanel = 

@@ -290,8 +290,8 @@ i2b2.events.afterCellInit.subscribe(
 					{ lazyload: true,
 					trigger: $('crcFindDisp'), 
 					itemdata: [
-						{ text: "Rename", 	onclick: { fn: i2b2.CRC.view.find.doRename } },
-						{ text: "Delete", 		onclick: { fn: i2b2.CRC.view.find.doDelete } }
+						{ text: "重命名", 	onclick: { fn: i2b2.CRC.view.find.doRename } },
+						{ text: "删除", 		onclick: { fn: i2b2.CRC.view.find.doDelete } }
 					] }  
 			); 
 			i2b2.CRC.view.find.ContextMenu.subscribe("triggerContextMenu",i2b2.CRC.view.find.ContextMenuValidate); 

@@ -418,7 +418,7 @@ try {
 					        '<td style="color: darkblue; text-align: center; vertical-align: middle; font-size: 45px">'+sDisplayNumber+'</td>' +
 						'</tr>' +
                         '<tr style="background-color: #B0C4DE">' +
-					        '<td style="color: black; text-align: center; vertical-align: middle;">For Query '+asInputFragments[0][0]+'</td>' +
+					        '<td style="color: black; text-align: center; vertical-align: middle;"><span>For Query</span> '+asInputFragments[0][0]+'</td>' +
 						'</tr>' +
                         '<tr style="background-color: white">' +
 					        '<td style="color: red; text-align: center; vertical-align: middle;">&nbsp</td>' +
@@ -1009,7 +1009,7 @@ i2b2.CRC.view.graphs.returnTestString = function (isSHRINE) {
 		+ "75-84 years old: 4\n"
 		+ ">= 85 years old: 3\n"
 		+ "Not recorded: 0\n"
-		+ "Number of patients for \"Circulatory sys@20:21:19\"\n"
+		+ "Number of patients for"+" \"Circulatory sys@20:21:19\"\n"
 		+ "patient_count: 66\n"
 		+ "Vital Status patient breakdown for \"Circulatory sys@20:21:19\"\n"
 		+ "Deceased: 1\n"

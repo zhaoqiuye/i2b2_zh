@@ -536,10 +536,10 @@ i2b2.events.afterCellInit.subscribe(
 					{ lazyload: true,
 					trigger: $('crcNavDisp'), 
 					itemdata: [
-						{ text: "Display",	onclick: { fn: i2b2.CRC.view.history.doDisplay } },
-						{ text: "Rename", 	onclick: { fn: i2b2.CRC.view.history.doRename } },
-						{ text: "Delete", 		onclick: { fn: i2b2.CRC.view.history.doDelete } },
-						{ text: "Refresh All",	onclick: { fn: i2b2.CRC.view.history.doRefreshAll } }
+						{ text: "显示",	onclick: { fn: i2b2.CRC.view.history.doDisplay } },
+						{ text: "重命名", 	onclick: { fn: i2b2.CRC.view.history.doRename } },
+						{ text: "删除", 		onclick: { fn: i2b2.CRC.view.history.doDelete } },
+						{ text: "查找修饰符",	onclick: { fn: i2b2.CRC.view.history.doRefreshAll } }
 					] }  
 			); 
 			i2b2.CRC.view.history.ContextMenu.subscribe("triggerContextMenu",i2b2.CRC.view.history.ContextMenuValidate); 

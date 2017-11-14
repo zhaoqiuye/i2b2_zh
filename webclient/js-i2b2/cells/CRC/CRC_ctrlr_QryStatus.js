@@ -305,7 +305,7 @@ i2b2.CRC.ctrlr.QueryStatus.prototype = function() {
 		
 		var self = i2b2.CRC.ctrlr.currentQueryStatus;
 		// this private function refreshes the display DIV
-					var d = new Date();
+			var d = new Date();
 			var t = Math.floor((d.getTime() - private_startTime)/100)/10;
 			var s = t.toString();
 			if (s.indexOf('.') < 0) {
@@ -317,7 +317,7 @@ i2b2.CRC.ctrlr.QueryStatus.prototype = function() {
 
 			self.dispDIV.innerHTML += '<div style="float:right">['+s+' secs]</div>';
 		} else {
-			self.dispDIV.innerHTML = '<div style="clear:both;"><div style="float:left; font-weight:bold">Finished Query: "'+self.QM.name+'"</div>';
+			self.dispDIV.innerHTML = '<div style="clear:both;"><div style="float:left; font-weight:bold"><span>Finished Query:</span> "'+self.QM.name+'"</div>';
 			self.dispDIV.innerHTML += '<div style="float:right">['+s+' secs]</div>';
 			
 			//Query Report BG
@@ -332,12 +332,12 @@ i2b2.CRC.ctrlr.QueryStatus.prototype = function() {
 			//End Query Report BG
 			//		self.dispDIV.innerHTML += '<div style="margin-left:20px; clear:both; height:16px; line-height:16px; "><div height:16px; line-height:16px; ">Compute Time: ' + (Math.floor((self.QI.end_date - self.QI.start_date)/100))/10 + ' secs</div></div>';
 			//		self.dispDIV.innerHTML += '</div>';
-			$('runBoxText').innerHTML = "Run Query";
+			$('runBoxText').innerHTML = "执行查询";
 
 		}
 		self.dispDIV.innerHTML += '</div>';
 		if ((!private_singleton_isRunning) && (undefined != self.QI.end_date)){
-			self.dispDIV.innerHTML += '<div style="margin-left:20px; clear:both; line-height:16px; ">Compute Time: '+ (Math.floor((self.QI.end_date - self.QI.start_date)/100))/10 +' secs</div>';
+			self.dispDIV.innerHTML += '<div style="margin-left:20px; clear:both; line-height:16px; "><span>Compute Time:</span> '+ (Math.floor((self.QI.end_date - self.QI.start_date)/100))/10 +' secs</div>';
 		}
 		
 		var foundError = false;
