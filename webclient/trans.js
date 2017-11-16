@@ -1,37 +1,41 @@
 
 function translate(arg){
     var s = jQuery(arg).text().trim();
+    var t = JSON.stringify({"src": s, "domain":"webclient"});
     jQuery.ajax({ 
         type:'POST',
-        url:'action.php',
+        url:'http://47.94.148.72:1262/trans',  
         dataType:'json',
-        data:{t:s},
+        data:t,
+        contentType:'application/x-www-form-urlencoded',
         success:function(data){
-            if(data == null){
-                jQuery(arg).html("待翻译");
-            }else{
-                jQuery(arg).html(data);  
-            }                            
+        	var r = data['exception'];
+        	if(r == false){
+        		jQuery(arg).html("待翻译"); 
+        	}else{
+        		jQuery(arg).html(data);
+        	}
+                                       
         }
     });
 }
 
-function transButton(arg){
-    var s = jQuery(arg).val().trim();
-    jQuery.ajax({ 
-        type:'POST',
-        url:'action.php',
-        dataType:'json',
-        data:{t:s},
-        success:function(data){
-            if(data == null){
-                jQuery(arg).val("待翻译");
-            }else{
-                jQuery(arg).val(data);  
-            }                            
-        }
-    });
-}
+// function transButton(arg){
+//     var s = jQuery(arg).val().trim();
+//     jQuery.ajax({ 
+//         type:'POST',
+//         url:'action.php',
+//         dataType:'json',
+//         data:{t:s},
+//         success:function(data){
+//             if(data == null){
+//                 jQuery(arg).val("待翻译");
+//             }else{
+//                 jQuery(arg).val(data);  
+//             }                            
+//         }
+//     });
+// }
 
 function buttonExcute(arg){
 	jQuery(arg).each(function(){
@@ -210,9 +214,7 @@ i2b2.events.afterLogin.subscribe(function(){
 jQuery(document).ready(function(){
     jQuery("#menubutton2select option,#addDefineGroup,#removeDefineGroup").each(function(){
         translate(this);
-    });
-
-   
+    });  
 });
 
 
