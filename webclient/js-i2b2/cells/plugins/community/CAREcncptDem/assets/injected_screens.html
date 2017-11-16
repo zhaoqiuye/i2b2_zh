@@ -55,30 +55,30 @@
 						<div class="CAREcncptDem-MainContent">
 							<div class="CAREcncptDem-MainContentPad">
 								<div>
-									Drop a patient set and at least one concept (ontology term) onto the approriate input boxes below, then click the <b>"View Results"</b> tab to retrieve the demographic comparison of the original patient set against the subset(s) that is (are) also associated with the specified concept(s). <br/><br/>
-									For more information, refer to the <b>"Plugin Help"</b> tab.<br/><br/>
+									<p>Drop a patient set and at least one concept (ontology term) onto the approriate input boxes below, then click the <b>"View Results"</b> tab to retrieve the demographic comparison of the original patient set against the subset(s) that is (are) also associated with the specified concept(s). <br/><br/>
+									For more information, refer to the <b>"Plugin Help"</b> tab.</p><br/><br/>
 								</div> 
 								<div> <hr noshade /></div>
 								<div class="droptrgtlbl">Patient Set:</div>
 								<div class="droptrgt SDX-PRS" id="CAREcncptDem-PRSDROP">Drop a Patient Set here</div>
 								<div id="CAREcncptDem-PatSetSize"></div>
 									<div id="CAREcncptDem-PatStartNum">
-										Starting Patient:
+										<span>Starting Patient:</span>
 										<input type="text" value="1" id="CAREcncptDem-StartingPat" size="2" onBlur="i2b2.CAREcncptDem.SetValidValue(this, 'startPatNum');">&nbsp;&nbsp;&nbsp;Number of Patients:
 										<input type="text" value="500" id="CAREcncptDem-NumberOfPats" size="4" onBlur="i2b2.CAREcncptDem.SetValidValue(this, 'patCount');">&nbsp;&nbsp;
 										<a href="javascript:i2b2.CAREcncptDem.ExplainStartingAndNumberOfPatients();">
 											<i>HELP</i>
 										</a>
-										<br/>Query Subgroup Size:
+										<br/><span>Query Subgroup Size:</span>
 										<input type="text" value = "20" id="CAREcncptDem-OutputQueryPageSize" size="2" onChange="i2b2.CAREcncptDem.SetValidValue(this, 'qChunkSize');">&nbsp;&nbsp;
 										<a href="javascript:i2b2.CAREcncptDem.ExplainQueryPageSize();"><i>HELP</i></a>
 									</div>
 								<div id="CAREcncptDem-PatSummary"></div>
 								<div class="droptrgtlbl">Concept(s):</div>
 								<div class="droptrgt SDX-CONCPT" id="CAREcncptDem-CONCPTDROP">
-									<div class="concptItem">Drop one or more Concepts here</div>
+									<div class="concptItem"><span>Drop one or more Concepts here</span></div>
 								</div> 
-								<div id="CAREcncptDem-DeleteMsg">Click a Concept to remove it from the list.</div>
+								<div id="CAREcncptDem-DeleteMsg"><span>Click a Concept to remove it from the list.</span></div>
 								<div id="CAREcncptDem-ConceptHint">
 									&nbsp;&nbsp;<a href="javascript:i2b2.CAREcncptDem.SuggestFinerConceptGrainularity();"><i>HINT</i></a>
 								</div>						
@@ -87,10 +87,10 @@
 					</div>
 					<div id="CAREcncptDem-Main">
 						<div class="CAREcncptDem-MainContent">
-							<div class="results-directions">Please return to the <b>"Specify Data"</b> tab and specify a Patient Set and at least a Concept.</div>
+							<div class="results-directions"><span>Please return to the <b>"Specify Data"</b> tab and specify a Patient Set and at least a Concept.</span></div>
 							<div class="results-working" style="display:none;">
-								In progress...
-								<br/><br/>Retrieving data, from the server (i2b2 hive), to create the histograms.
+								<span>In progress...</span>
+								<br/><br/><span>Retrieving data, from the server (i2b2 hive), to create the histograms.</span>
 								<br/><br/><div id="results-working-progress"></div>
 								<div id="results-chunks"></div>
 								<br/><br/><div id="results-working-time"></div>
@@ -105,15 +105,15 @@
 							<div class="results-finished" style="display:none;"></div>
 							<div class="results-serverFailed" style="display:none; ">
 							  <br/><div id="results-failure-time"></div>
-							  <br/><br/>Warning: The server (i2b2 hive) has returned an error -- apparently, it has been overwhelmed by the amount of data requested of it, and had failed!!
+							  <br/><br/><span>Warning: The server (i2b2 hive) has returned an error -- apparently, it has been overwhelmed by the amount of data requested of it, and had failed!!
 							  <br/><br/>Unfortunately, this server failure has also left this current webclient session in a bad state!!
-							  <br/><br/>Please logout of this webclient session (to allow the flushing of remnants of this server failure, in certain occasions, it may even be necessary to close the current web browser) and login to a new webclient session.  Then start this webclient plugin again, and reduce either the 'Number of Patients' or 'Query Subgroup Size' (to a smaller non-zero value), or both, in the "Specify Data" tab.
+							  <br/><br/>Please logout of this webclient session (to allow the flushing of remnants of this server failure, in certain occasions, it may even be necessary to close the current web browser) and login to a new webclient session.  Then start this webclient plugin again, and reduce either the 'Number of Patients' or 'Query Subgroup Size' (to a smaller non-zero value), or both, in the "Specify Data" tab.</span>
 							</div>
 						</div>
 					</div>
 					<div id="CAREcncptDem-Main">
 						<div class="CAREcncptDem-MainContent">
-							<div class="export-directions">Please specify a Patient Set and at least a Concept at the <b>"Specify Data"</b> tab; then review the resulting histograms at the <b>"View Results"</b> tab; repectively, first.</div>
+							<div class="export-directions"><span>Please specify a Patient Set and at least a Concept at the <b>"Specify Data"</b> tab; then review the resulting histograms at the <b>"View Results"</b> tab; repectively, first.</span></div>
 							<div class="buttonTable" style="display:none;">
 								<table>
 									<tr>
@@ -169,7 +169,7 @@
 						<div class="CAREcncptDem-MainContent">
 							<div class="CAREcncptDem-MainContentPad">
 								<h1>Introduction</h1>
-								This plugin provides the following functions:
+								<span>This plugin provides the following functions:</span>
 								<ul>
 								  <li>Generates demographic histograms on the subsets of patients associated (observed) with any selected concepts (ontology terms).</li>
 								  <li>Allows the usage of smaller queries of patient subgroups (from a large patient set) iteratively, in place of one single large query of that huge patient set, to reduce risk of overwhelming the server (i2b2 hive).</li>
@@ -217,7 +217,7 @@
 								</ul>
 								<p>
 								<h1>i2b2 version compatibilities</h1>
-								This current version is compatible with i2b2 v.1.6-1.7.
+								<span>This current version is compatible with i2b2 v.1.6-1.7.</span>
 								<p>
 								<h1>Version History</h1>
 								<table style="border-collapse:collapse; text-align:justify; width:100%">
@@ -252,10 +252,10 @@
 								</table>
 								<p>
 								<h1>Terms of Use</h1>
-								This plugin is published under the <a href="http://www.gnu.org/licenses/gpl.txt" target="_blank">GNU GPL v3 license</a>.
+								<span>This plugin is published under the <a href="http://www.gnu.org/licenses/gpl.txt" target="_blank">GNU GPL v3 license</a>.</span>
                                 <br/><br/>  
-								This software is distributed as a plugin to the i2b2 v1.6-1.7  webclient framework, and may be used free of charge.  It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-								PARTICULAR PURPOSE.
+								<span>This software is distributed as a plugin to the i2b2 v1.6-1.7  webclient framework, and may be used free of charge.  It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+								PARTICULAR PURPOSE.</span>
 							</div>
 						</div>
 					</div>

@@ -39,7 +39,9 @@
  */
 -->
 <html>
-    <body>	<div id="WISEsearcher-mainDiv">	    <div id="WISEsearcher-TABS" class="yui-navset">
+    <body>
+	<div id="WISEsearcher-mainDiv">
+	    <div id="WISEsearcher-TABS" class="yui-navset">
 		<ul class="yui-nav">
 		    <li id="WISEsearcher-TAB0" class="selected"><a href="#WISEsearcher-TAB0"><em>Specify Search</em></a></li>
 		    <li id="WISEsearcher-TAB1"><a href="#WISEsearcher-TAB1"><em>Result</em></a></li>
@@ -59,37 +61,37 @@
 				    <form>
 					<br/><b>Case option:</b><br/>
 					<input type="radio" checked name="caseCriteria" value="o" onclick="i2b2.WISEsearcher.caseChanged('o');");">
-					Observe case differences (case-sensitive).<br/>
+					<span>Observe case differences (case-sensitive).</span><br/>
 					<input type="radio" 	    name="caseCriteria" value="i" onclick="i2b2.WISEsearcher.caseChanged('i');");">
-					Ignore case differences (case-insensitive).
+					<span>Ignore case differences (case-insensitive).</span>
 				    </form>
 				</div>
 				<div><p><hr size="1" noshade></div>
 				<div id="WISEsearcher-searchTerms" class="searchTerms">
-				    Search term(s) (comma-separated):<br/>
+				    <span>Search term(s) (comma-separated):</span><br/>
 				    <textarea></textarea>
 				</div>
 				<div id="WISEsearcher-matchOptions" class="matchOptions">
 				    <form>
 					<br/><b>Match option:</b><br/>
 					<input type="radio"         name="matchCriteria" value="a" onclick="i2b2.WISEsearcher.matchChanged('a');");">
-					    Include any item that contains (in its annotation or name) all the specified terms.<br/>
+					    <span>Include any item that contains (in its annotation or name) all the specified terms.</span><br/>
 					<input type="radio" checked name="matchCriteria" value="1" onclick="i2b2.WISEsearcher.matchChanged('1');");">
-					    Include any item that contains at least one of the specified terms.<br/>
+					    <span>Include any item that contains at least one of the specified terms.</span><br/>
 				    </form>
 				</div>
 				<div><p><hr size="1" noshade></div>
 				<div id="WISEsearcher-excludeTerms" class="searchTerms">
-				    Exclude term(s) (comma-separated):<br/>
+				    <span>Exclude term(s) (comma-separated):</span><br/>
 				    <textarea></textarea>
 				</div>
 				<div id="WISEsearcher-excludeOptions" class="matchOptions">
 				    <form>
 					<br/><b>Exclude option:</b><br/>
 					<input type="radio"         name="excludeCriteria" value="a" onclick="i2b2.WISEsearcher.excludeChanged('a');");">
-                                            Exclude any item that contains all the specified terms.<br/>
+                                           <span> Exclude any item that contains all the specified terms.</span><br/>
 					<input type="radio" checked name="excludeCriteria" value="1" onclick="i2b2.WISEsearcher.excludeChanged('1');");">
-                                            Exclude any item that contains at least one of the specified terms.<br/>
+                                            <span>Exclude any item that contains at least one of the specified terms.</span><br/>
 				    </form>
 				</div>
 			    </div>
@@ -152,11 +154,11 @@
 			<div>
 			    <div class="WISEsearcher-MainContent">
 				<div class="WISEsearcher-MainContentPad" style="text-align:justify">
-				    <h1>Introduction</h1>
-					This plugin is part of the WISE (Workplace Items Sharing Enhancement) Tool Set developed as a result of feedback and suggestions from the i2b2 users
+				    <h1>Introduction</h1><br/>
+					<span>This plugin is part of the WISE (Workplace Items Sharing Enhancement) Tool Set developed as a result of feedback and suggestions from the i2b2 users
 					community in the University of Massachusetts Medical School.  As its name implies, the purpose of this tool set is to facilitate and enhance the sharing of 
-					the items or objects in the Workplace panel of the i2b2 web client; to the extend that unnecessary repetitions of preious works can be prevented or minimized.
-                                        <p>This plugin provides the following main functions:
+					the items or objects in the Workplace panel of the i2b2 web client; to the extend that unnecessary repetitions of preious works can be prevented or minimized.</span>
+                                        <p><span>This plugin provides the following main functions:</span>
 					<ol>
 					    <li>Finds all Workplace items / objects (folders, queries, patient sets, etc.) containing the terms provided (in either their annotations or their names), 
                                                 in the conditions selected.</li>
@@ -172,7 +174,8 @@
 					    <li>Select the appropriate <span style="font-family:monospace"><i>Case, Match, & Exclusion option</i></span> radio buttons.</li>
 					    <li>Finally, click the <span style="font-family:monospace">"Result"</span> tab to view the tabulated search result.</li>
 					</ol>
-                                    <p>				    <h1>Browser Compatibilities</h1>
+                                    <p>
+				    <h1>Browser Compatibilities</h1>
 					<ul>
 				            <li>This plugin works on the following browsers: Firefox (v.4.0.1), Chrome (v.12 - v.17), Safari (v.5.0.5), and Internet Explorer (v8 & v.9).</li>
 					    <li>The i2b2 Web client itself does not work on the following browser: Opera (v.11.50 or v.11.61).</li>
@@ -204,23 +207,23 @@
 					</table>
 				    <p>
 				    <h1>Availability</h1>
-					This plugin is free to the rest of the i2b2 community.  It can be downloaded from the 
+					<span>This plugin is free to the rest of the i2b2 community.  It can be downloaded from the 
 					<a href="http://micard.umassmed.edu/downloads.php#WISE-tools"  target="_blank" title="website to download this plugin">
-					 University of Massachusetts Medical School website for i2b2 related downloads.
+					 University of Massachusetts Medical School website for i2b2 related downloads.</span>
                                         </a>  
 				    <p>
 				    <h1>Terms of Use</h1>
-					This plugin is published under the <a href="http://www.gnu.org/licenses/gpl.txt" target="_blank">GNU GPL v3 license</a>.
+					<span>This plugin is published under the <a href="http://www.gnu.org/licenses/gpl.txt" target="_blank">GNU GPL v3 license</a>.</span>
                                         <br/><br/>  
-					This software is distributed as a plugin to the i2b2 v1.3 & v1.6RC2 webclient framework, and may be used free of charge.  It is distributed in the hope that it
-					will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+					<span>This software is distributed as a plugin to the i2b2 v1.3 & v1.6RC2 webclient framework, and may be used free of charge.  It is distributed in the hope that it
+					will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
 				    <p>
 				    <h1>About Us</h1>
-					This plugin was created by S. Wayne Chan & the Bio-Medical Informatics (BMI) Core Team, University of Massachusetts Medical School, Worcester, MA.<br/><br/>
-					<i><code>Copyright 2011, 2012 University of Massachusetts Medical School.</code></i>  
+					<span>This plugin was created by S. Wayne Chan & the Bio-Medical Informatics (BMI) Core Team, University of Massachusetts Medical School, Worcester, MA.</span><br/><br/>
+					<i><code><span>Copyright 2011, 2012 University of Massachusetts Medical School.</span></code></i>  
 				    <p>
-				    <h1>Acknowledgement</h1>
-					This plugin leveraged off the following:
+				    <h1>Acknowledgement</h1><br/>
+					<span>This plugin leveraged off the following:</span><br/>
 					<ul>
 					    <li>the general construct / format /style  / template used in the i2b2 web client plugin examples by N. Benik & G. Weber;</li>
 					    <li>the <span style="font-family:monospace">XLS</span> export feature of the <span style="font-family:monospace">ExportXLS</span> plugin 
@@ -230,7 +233,8 @@
 			    </div>
 			</div>
 		    </div>
-		</div>            </div>
+		</div>
+            </div>
         </div>
     </body>
 </html>

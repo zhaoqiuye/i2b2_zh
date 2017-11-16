@@ -1245,13 +1245,13 @@
     <div id="itemConstraints" style=""></div>
     <!-- ############### <Option Screens> ############### -->
     <div id="optionsQT" style="display:none;">
-        <div class="hd" style="background:#6677AA;">Query Tool Options</div>
+        <div class="hd" style="background:#6677AA;"><span>Query Tool Options</span></div>
         <div class="bd">
             <center>
                 <table style="font-size:12px">
                     <!--				<tr><td>Maximum Number of Children to Display:</td><td><input id="MaxChldDisp" style="width:35px" /></td></tr> -->
                     <tr>
-                        <td>Maximum Time to Wait for XML Response (in seconds):</td>
+                        <td><span>Maximum Time to Wait for XML Response (in seconds):</span></td>
                         <td><input id="QryTimeout" style="width:35px"/></td>
                     </tr>
                 </table>
@@ -1259,18 +1259,18 @@
         </div>
     </div>
     <div id="optionsHistory" style="display:none;">
-        <div class="hd" style="background:#6677AA;">Options for "Previous Queries" Window</div>
+        <div class="hd" style="background:#6677AA;"><span>Options for "Previous Queries" Window</span></div>
         <div class="bd">
             <center>
                 <br/>
                 <table style="font-size:12px">
                     <tr>
-                        <td>Maximum Number of Queries to Display:</td>
+                        <td><span>Maximum Number of Queries to Display:</span></td>
                         <td><input id="HISTMaxQryDisp" style="width:35px"/></td>
                     </tr>
                     <tr>
                         <td colspan="2"><br/>
-                            Sort Queries
+                            <span>Sort Queries</span>
                         </td>
                     </tr>
                     <tr>
@@ -1279,12 +1279,12 @@
                                 <tr>
                                     <td><input type="radio" name="HISTsortBy" id="HISTsortByNAME" value="NAME"
                                                checked="checked"/>
-                                        By Name
+                                        <span>By Name</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><input type="radio" name="HISTsortBy" id="HISTsortByDATE" value="DATE"/>
-                                        By Create Date
+                                        <span>By Create Date</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1295,10 +1295,10 @@
                                 <tr>
                                     <td><input type="radio" name="HISTsortOrder" id="HISTsortOrderASC" value="ASC"
                                                checked="checked"/>
-                                        Ascending
+                                        <span>Ascending</span>
                                     </td>
                                     <td><input type="radio" name="HISTsortOrder" id="HISTsortOrderDESC" value="DESC"/>
-                                        Descending
+                                        <span>Descending</span>
                                     </td>
                                 </tr>
                             </table>
@@ -1309,68 +1309,68 @@
         </div>
     </div>
     <div id="optionsOntNav" style="display:none;">
-        <div class="hd" style="background:#6677AA;">Options for Navigating Terms</div>
+        <div class="hd" style="background:#6677AA;"><span>Options for Navigating Terms</span></div>
         <div class="bd"><br/>
-            <div style="font-size:12px; margin-left:50px">Maximum Number of Children to Display:
+            <div style="font-size:12px; margin-left:50px"><span>Maximum Number of Children to Display:</span>
                 <input id="ONTNAVMaxQryDisp" style="width:35px" value="200"/>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTNAVshowHiddens"/>
-                Show Hidden Terms
+                <span>Show Hidden Terms</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTNAVshowSynonyms"/>
-                Show Synonymous Terms
+                <span>Show Synonymous Terms</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" checked id="ONTNAVshowPatientCounts"/>
-                Enable Patient Counts
+                <span>Enable Patient Counts</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTNAVshowShortTooltips"/>
-                Use Short Tooltips
+                <span>Use Short Tooltips</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTNAVshowCodeTooltips"
                        onclick="$('ONTFINDshowCodeTooltips').checked = $('ONTNAVshowCodeTooltips').checked"/>
-                Show Concept Codes in Tooltips
+                <span>Show Concept Codes in Tooltips</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTNAVdisableModifiers"/>
-                Disable Modifiers
+                <span>Disable Modifiers</span>
             </div>
         </div>
     </div>
     <div id="optionsOntFind" style="display:none;">
-        <div class="hd" style="background:#6677AA;">Options for Finding Terms</div>
+        <div class="hd" style="background:#6677AA;"><span>Options for Finding Terms</span></div>
         <div class="bd"><br/>
-            <div style="font-size:12px; margin-left:50px">Maximum Number of Children to Display:
+            <div style="font-size:12px; margin-left:50px"><span>Maximum Number of Children to Display:</span>
                 <input id="ONTFINDMaxQryDisp" style="width:35px" value="200"/>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTFINDshowHiddens"/>
-                Show Hidden Terms
+                <span>Show Hidden Terms</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" checked id="ONTFINDshowSynonyms"/>
-                Show Synonymous Terms
+                <span>Show Synonymous Terms</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTFINDshowPatientCounts"/>
-                Enable Patient Counts
+                <span>Enable Patient Counts</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTFINDshowShortTooltips"/>
-                Use Short Tooltips
+                <span>Use Short Tooltips</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTFINDshowCodeTooltips"
                        onclick="$('ONTNAVshowCodeTooltips').checked = $('ONTFINDshowCodeTooltips').checked"/>
-                Show Concept Codes in Tooltips
+                <span>Show Concept Codes in Tooltips</span>
             </div>
             <div style="margin-left:50px">
                 <input type="checkbox" id="ONTFINDdisableModifiers"/>
-                Disable Modifiers
+                <span>Disable Modifiers</span>
             </div>
         </div>
     </div>
