@@ -7,6 +7,6 @@ def getZnFromApi(en):
     r = requests.post(url, data)
     ss = json.loads(r.text, encoding="utf-8")
     if ss['exception']:
-        return en
-    else:
         return ss['result']
+    else:
+        return en
