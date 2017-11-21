@@ -1058,11 +1058,11 @@ i2b2.events.afterCellInit.subscribe(
 					if (sText == "0")
 					{
 						$('QPD1').style.background = '#FFFFFF';
-						$('queryPanelTitle1').innerHTML = '第1组';
+						$('queryPanelTitle1').innerHTML = 'Group 1';
 						i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set('disabled', false);
 					} else {
 						$('QPD1').style.background = '#D9ECF0';
-						$('queryPanelTitle1').innerHTML = '固定观察';	
+						$('queryPanelTitle1').innerHTML = 'Anchoring Observation';	
 						i2b2.CRC.ctrlr.QT.panelControllers[0].doTiming("SAMEINSTANCENUM");
 					    i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set('disabled', true);
 						i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set("label", "项目实例相同");		

@@ -62,7 +62,7 @@ function QueryToolController() {
 		$('infoQueryStatusChart').innerHTML = "";
 		$('crc.temoralBuilder').hide();		
 		$('crc.innerQueryPanel').show();
-		this.panelControllers[0].refTitle.innerHTML =  '第1组';
+		this.panelControllers[0].refTitle.innerHTML =  'Group 1';
 		$("defineTemporal-button").innerHTML = "Population in which events occur";
 		i2b2.CRC.view.QT.setQueryTiming(0);
 		i2b2.CRC.view.QT.clearTemportal();
@@ -1189,14 +1189,14 @@ function QueryToolController() {
 				var sText = defineTemporalButton.get("label");
 			
 			if (sText != "Population in which events occur")
-					this.panelControllers[i].refTitle.innerHTML =  '固定观察';
+					this.panelControllers[i].refTitle.innerHTML =  'Anchoring Observation';
 				else
-					this.panelControllers[i].refTitle.innerHTML =  '第1组';
+					this.panelControllers[i].refTitle.innerHTML =  'Group 1';
 
 			}
 			else
 			{
-				this.panelControllers[i].refTitle.innerHTML = "第"+(index_offset+i+1)+"组";
+				this.panelControllers[i].refTitle.innerHTML = "Group "+(index_offset+i+1);
 			}
 			this.panelControllers[i].setPanelRecord(index_offset+i, i);
 			if (i > 0) {
