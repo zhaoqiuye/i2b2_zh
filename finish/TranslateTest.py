@@ -4,18 +4,19 @@ import codecs
 import pymysql
 import time
 import TranslationRequests as translationApi
-
+import UpdateI2b2 as updateApi
+import OpenFile as openfileApi
 
 def selectI2b2(table):
     """
         从指定数据表中查询
         _:param table 指定数据表
     """
-    conn = psycopg2.connect(database="i2b2metadata", user="postgres", password="postgres", host="192.168.249.131",
+    conn = psycopg2.connect(database="i2b2metadata", user="postgres", password="postgres", host="localhost",
                             port="5432")
     # 获取执行查询的对象
     cur = conn.cursor()
-    sql = "SELECT c_name FROM " + table + " WHERE c_name ~ '[^0-9]'limit 10"
+    sql = "SELECT c_name FROM " + table + " WHERE c_name ~ '[^0-9]'"
     # 执行那个查询，这里用的是select语句
     cur.execute(sql)
 
@@ -65,7 +66,8 @@ def updateZn(zn, en, table):
         _:param en
         _:param table
     """
-    conn = psycopg2.connect(database="i2b2metadata", user="postgres", password="postgres", host="192.168.249.131",
+    updateApi.updateOrInsert(en, table)
+    conn = psycopg2.connect(database="i2b2metadata", user="postgres", password="postgres", host="localhost",
                             port="5432")
     # 获取执行查询的对象
     cur = conn.cursor()
@@ -83,7 +85,8 @@ def updateZn(zn, en, table):
 
 if __name__ == '__main__':
     t1 = time.time()
-    selectI2b2("table_access")
+    tb=openfileApi.openfile()
+    selectI2b2(tb)
     t2 = time.time()
     time = t2 - t1
     print time
