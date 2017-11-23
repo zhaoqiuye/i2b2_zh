@@ -7,6 +7,7 @@ import TranslationRequests as translationApi
 import UpdateI2b2 as updateApi
 import OpenFile as openfileApi
 
+
 def selectI2b2(table):
     """
         从指定数据表中查询
@@ -16,7 +17,7 @@ def selectI2b2(table):
                             port="5432")
     # 获取执行查询的对象
     cur = conn.cursor()
-    sql = "SELECT c_name FROM " + table + " WHERE c_name ~ '[^0-9]'"
+    sql = "SELECT c_name FROM " + table + " WHERE c_name ~ '[^0-9]'and en_name is null"
     # 执行那个查询，这里用的是select语句
     cur.execute(sql)
 
@@ -72,6 +73,7 @@ def updateZn(zn, en, table):
     # 获取执行查询的对象
     cur = conn.cursor()
     en = en.replace('\'', '\'\'')
+    zn = zn.replace('\'', '\'\'')
     if zn is None:
         sql = "UPDATE " + table + " SET c_name='%s' WHERE c_name='%s'" % (en + '待翻译', en)
         cur.execute(sql)
@@ -85,7 +87,7 @@ def updateZn(zn, en, table):
 
 if __name__ == '__main__':
     t1 = time.time()
-    tb=openfileApi.openfile()
+    tb = openfileApi.openfile()
     selectI2b2(tb)
     t2 = time.time()
     time = t2 - t1

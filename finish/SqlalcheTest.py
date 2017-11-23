@@ -1,5 +1,5 @@
 # encoding: utf-8
-#sqlalchemy 测试
+# sqlalchemy 测试
 from lib2to3.pytree import Base
 from random import randint
 
@@ -49,12 +49,10 @@ def creatDatabaseMysql():
     Base.metadata.create_all(enginemysql)
 
 
-"""
-    查询数据
-"""
-
-
 def queryAllData():
+    """
+        查询数据
+    """
     DBSession = sessionmaker(bind=enginepsql)
     session = DBSession()
     alist = session.query(App).all()
@@ -66,12 +64,11 @@ def queryAllData():
     session.expunge_all()
     session.close()
 
+
+def insertAllData(queryList):
     """
         插入数据
     """
-
-
-def insertAllData(queryList):
     print "insert data ......."
     DBSession = sessionmaker(bind=enginemysql)
     session = DBSession()
