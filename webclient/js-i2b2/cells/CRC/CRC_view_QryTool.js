@@ -109,9 +109,9 @@ i2b2.CRC.view.QT.ContextMenuPreprocess = function(p_oEvent) {
 					// custom build the context menu according to the concept that was clicked
 					var mil = [];
 					var op = i2b2.CRC.view.QT;
-					mil.push( { text: "Set Date Constraint", onclick: { fn: op.ContextMenuRouter, obj: 'dates' }} );
+					mil.push( { text: "设置日期约束", onclick: { fn: op.ContextMenuRouter, obj: 'dates' }} );
 					// all nodes can be deleted
-					mil.push( { text: "Delete", onclick: { fn: op.ContextMenuRouter, obj: 'delete' }} );
+					mil.push( { text: "删除", onclick: { fn: op.ContextMenuRouter, obj: 'delete' }} );
 					if (i2b2.CRC.view.QT.contextRecord.origData.isModifier) {
 						
 						//Get the blob for this now.
@@ -1058,11 +1058,11 @@ i2b2.events.afterCellInit.subscribe(
 					if (sText == "0")
 					{
 						$('QPD1').style.background = '#FFFFFF';
-						$('queryPanelTitle1').innerHTML = '第1组';
+						$('queryPanelTitle1').innerHTML = 'Group 1';
 						i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set('disabled', false);
 					} else {
 						$('QPD1').style.background = '#D9ECF0';
-						$('queryPanelTitle1').innerHTML = '固定观察';	
+						$('queryPanelTitle1').innerHTML = 'Anchoring Observation';	
 						i2b2.CRC.ctrlr.QT.panelControllers[0].doTiming("SAMEINSTANCENUM");
 					    i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set('disabled', true);
 						i2b2.CRC.ctrlr.QT.panelControllers[0].refTiming.set("label", "项目实例相同");		
