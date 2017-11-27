@@ -31,7 +31,8 @@ def selectI2b2(table):
         row = cur.fetchone()
         # 直接输出两个元素s
         r = row[0]
-        s = translationApi.getZnFromApi(r)
+        s = translationApi.getZnFromApi('http://47.94.148.72:1262/trans',r)
+        time.sleep(1000)
         updateZn(s, r, table)
 
 
