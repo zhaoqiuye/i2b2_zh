@@ -1,7 +1,7 @@
 
 function translate(arg){
     var s = jQuery(arg).text().trim();
-    var t = JSON.stringify({"src": s, "domain":"webclient"});
+    var t = JSON.stringify({"src": s, "domain":"metadata"});
     jQuery.ajax({ 
         type:'POST',
         url:'http://47.94.148.72:1262/trans',  
@@ -139,14 +139,14 @@ jQuery(document).ready(function(){
     });
 
     //清空 Add New
-    jQuery(".qryPanelClear,[alt='Add New'],#newBox").click(function(){
-        setTimeout("buttonExcute('#queryPanelTitle1,#queryPanelTitle2,#queryPanelTitle3')",0.01);
-    });
+    // jQuery(".qryPanelClear,[alt='Add New'],#newBox").click(function(){
+    //     setTimeout("buttonExcute('#queryPanelTitle2,#queryPanelTitle3')",0.01);
+    // });
  
     //点击清空按钮
-    jQuery("#newBox").click(function(){
-        setTimeout("buttonExcute('#yui-gen0 .yuimenuitemlabel,#queryTiming-button,#defineTemporal-button,#menubutton1select option,.relationshipAmongEvents option')",0.01);
-    });
+    // jQuery("#newBox").click(function(){
+    //     setTimeout("buttonExcute('#yui-gen0 .yuimenuitemlabel,#queryTiming-button,#defineTemporal-button,#menubutton1select option,.relationshipAmongEvents option')",0.01);
+    // });
 
     //添加查询时间按钮
     var count = 0;
@@ -161,6 +161,7 @@ jQuery(document).ready(function(){
             count = count - 1;
         });            
     });
+
 
     // //导航条款选项
     // function okButton(arg){

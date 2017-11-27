@@ -125,7 +125,7 @@ i2b2.PM.model.html.loginDialog = '<div id="i2b2_login_modal_dialog" style="displ
 	'				<div class="input"><input type="password" name="pword" id="loginpass" value="'+i2b2.UI.cfg.loginDefaultPassword+'" size="20" maxlength="50" /></div>\n'+
 	'				<div class="label">'+i2b2.UI.cfg.loginHostText+'</div>\n'+
 	'				<div class="input"><select name="server" id="logindomain"><option value="">Loading...</option></select></div>\n'+
-	'				<div class="button"><input type="button" value="  Login  " onclick="i2b2.PM.doLogin()" /></div>\n'+	
+	'				<div class="button"><input type="button" value="  登录  " onclick="i2b2.PM.doLogin()" /></div>\n'+	
 	'			</div>\n'+
 	'		</form>\n'+
 	'	</div>\n'+

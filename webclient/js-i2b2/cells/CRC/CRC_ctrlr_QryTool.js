@@ -62,7 +62,7 @@ function QueryToolController() {
 		$('infoQueryStatusChart').innerHTML = "";
 		$('crc.temoralBuilder').hide();		
 		$('crc.innerQueryPanel').show();
-		this.panelControllers[0].refTitle.innerHTML =  'Group 1';
+		this.panelControllers[0].refTitle.innerHTML =  '第1组';
 		$("defineTemporal-button").innerHTML = "Population in which events occur";
 		i2b2.CRC.view.QT.setQueryTiming(0);
 		i2b2.CRC.view.QT.clearTemportal();
@@ -1189,14 +1189,16 @@ function QueryToolController() {
 				var sText = defineTemporalButton.get("label");
 			
 			if (sText != "Population in which events occur")
-					this.panelControllers[i].refTitle.innerHTML =  'Anchoring Observation';
+					// this.panelControllers[i].refTitle.innerHTML =  'Anchoring Observation';
+					this.panelControllers[i].refTitle.innerHTML =  '锚定观察';
 				else
-					this.panelControllers[i].refTitle.innerHTML =  'Group 1';
+					// this.panelControllers[i].refTitle.innerHTML =  'Group 1';
+					this.panelControllers[i].refTitle.innerHTML =  '第1组';
 
 			}
 			else
 			{
-				this.panelControllers[i].refTitle.innerHTML = "Group "+(index_offset+i+1);
+				this.panelControllers[i].refTitle.innerHTML = "第"+(index_offset+i+1)+"组";
 			}
 			this.panelControllers[i].setPanelRecord(index_offset+i, i);
 			if (i > 0) {
@@ -2579,19 +2581,32 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 			text = 'No Query Name is currently provided';
 			qrNameNotProvided = true;
 		}
+		// else{
+		// 	if(previewQueryOnly)
+		// 		text = '<span>The query entitled</span> "' + queryObj.name + '"';
+		// 	else
+		// 		text = '<span>The query entitled</span> "' + queryObj.name ;
+		// }
 		else{
 			if(previewQueryOnly)
-				text = '<span>The query entitled</span> "' + queryObj.name + '"';
+				text = '<span>查询名称为</span> "' + queryObj.name + '"';
 			else
-				text = '<span>The query entitled</span> "' + queryObj.name ;
+				text = '<span>查询名称为</span> "' + queryObj.name ;
 		}
 		
+		// if(dateInfoProvided == true && !previewQueryOnly){
+		// text = (qrNameNotProvided ? 'The query "' : '') + text + '" <span>submitted on</span> ' +  
+		// 	start_date.toLocaleString('en-GB') + ', <span>was successfully completed on</span> '+  
+		// 	end_date.toLocaleString('en-GB') + '. <span>This query was performed by</span> "'+ username + 
+		// 	'". <span>The search was completed in</span> ' + 
+		// 	diff.toString() + ' <span>seconds</span>.' ;
+		// }
 		if(dateInfoProvided == true && !previewQueryOnly){
-		text = (qrNameNotProvided ? 'The query "' : '') + text + '" <span>submitted on</span> ' +  
-			start_date.toLocaleString('en-GB') + ', <span>was successfully completed on</span> '+  
-			end_date.toLocaleString('en-GB') + '. <span>This query was performed by</span> "'+ username + 
-			'". <span>The search was completed in</span> ' + 
-			diff.toString() + ' <span>seconds</span>.' ;
+		text = (qrNameNotProvided ? 'The query "' : '') + text + '" <span>提交于</span> ' +  
+			start_date.toLocaleString('en-GB') + ', <span>被成功的完成在</span> '+  
+			end_date.toLocaleString('en-GB') + '. <br/><span>此查询由</span> "'+ username + 
+			'". <span>搜索完成在</span> ' + 
+			diff.toString() + ' <span>秒</span>.' ;
 		}
 		
 		if(QueryReportWin)
@@ -2999,7 +3014,7 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 		dataArray.each(function(data){
 			if(data[1].trim().toLowerCase().indexOf('number of patients') >= 0)
 			{
-				patientNumItem.set('Total Patients Matching Query',data[4].trim());
+				patientNumItem.set('全患者匹配查询',data[4].trim());
 			}
 		});
 		
@@ -3022,7 +3037,7 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 			}
 			contDiv = new Element('div',{'id':reultsContDivId});
 			var trObj = new Element('tr');
-			var tdObj = new Element('td' , {'class' : 'descResultshead'}).update('Total Patients Matching Query');
+			var tdObj = new Element('td' , {'class' : 'descResultshead'}).update('全患者匹配查询');
 			reultsTable.insert(trObj.insert(tdObj));
 			
 			trObj = new Element('tr');
@@ -3032,13 +3047,14 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 		}); 
 		
 		if(child){
-			jQuery("#queryResultsContainer",child.document).append('<div class="subTitleDivs">Total Number of Cases</div>');
+			// jQuery("#queryResultsContainer",child.document).append('<div class="subTitleDivs">Total Number of Cases</div>');
+			jQuery("#queryResultsContainer",child.document).append('<div class="subTitleDivs">案件总数</div>');
 			jQuery("#queryResultsContainer",child.document).append(jQuery(contDiv).html());
 			jQuery("#queryResultsContainer",child.document).append('<br>');
 		}
 		else
 		{
-			jQuery("#queryResultsContainer").append('<div class="subTitleDivs">Total Number of Cases</div>');
+			jQuery("#queryResultsContainer").append('<div class="subTitleDivs">案件总数</div>');
 			jQuery("#queryResultsContainer").append(jQuery(contDiv).html());
 			jQuery("#queryResultsContainer").append('<br>');
 		}
@@ -3286,7 +3302,7 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 		dataArray.each(function(data){
 			if(data[1].trim().toLowerCase().indexOf('number of patients') >= 0)
 			{
-				patientNumItem.set('Total Patients Matching Query',data[4].trim());
+				patientNumItem.set('全患者匹配查询',data[4].trim());
 			}
 		});
 		
@@ -3296,7 +3312,7 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 		patientNumItem.each(function(item){
 			contDiv = new Element('div',{'id':reultsContDivId});
 			var trObj = new Element('tr');
-			var tdObj = new Element('td' , {'class' : 'descResultshead'}).update('Total Patients Matching Query');
+			var tdObj = new Element('td' , {'class' : 'descResultshead'}).update('全患者匹配查询');
 			reultsTable.insert(trObj.insert(tdObj));
 			
 			trObj = new Element('tr');
@@ -3305,7 +3321,7 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 			contDiv.insert(reultsTable);
 		}); 
 		
-		jQuery("#queryResultsContainer #AllTables").append('<div class="subTitleDivs">Total Number of Cases</div>');
+		jQuery("#queryResultsContainer #AllTables").append('<div class="subTitleDivs">全部患者匹配查询</div>');
 		jQuery("#queryResultsContainer #AllTables").append(jQuery(contDiv).html());
 		jQuery("#queryResultsContainer #AllTables").append('<br>');
 		
@@ -3576,20 +3592,36 @@ this.queryReport = function(fromPrintButton,queryNameInput,previewQueryOnly)
 			"<body>"+
 			"</body>";
 			
+	// this.PrintQueryBody = 
+	// 		"<div id=\"QueryReportLoading\"><img src=\"js-i2b2/cells/CRC/assets/loading.gif\" alt=\"Loading\"/></div>"+
+	// 		"<div id='QueryReportContainer' class='no-show'>"+
+	// 		"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> <span>Print Report</span></a>"+
+	// 		"<div class='QRMainHeader'>i2b2 Query Report</div>"+
+	// 		"<table id='queryDetailsTable'></table>"+
+	// 		"<div class='descHead'>Query Definition</div>"+
+	// 		"<table id='qdHeaderTable'></table>"+
+	// 		"<table id='qdContainerTable'></table><br>"+
+	// 		"<table id='temporalQryEventsContainerTable'></table><br>"+
+	// 		"<table id='temporalQryEventsRelationsTable'></table>"+
+	// 		"<div id='qrsTitle' class='descHead'>Query Results</div>"+
+	// 		"<br><div id='queryResultsContainer'></div>" + 
+	// 		"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> <span>Print Report</span></a>"+
+	// 		"</div>";
+
 	this.PrintQueryBody = 
 			"<div id=\"QueryReportLoading\"><img src=\"js-i2b2/cells/CRC/assets/loading.gif\" alt=\"Loading\"/></div>"+
 			"<div id='QueryReportContainer' class='no-show'>"+
-			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> <span>Print Report</span></a>"+
-			"<div class='QRMainHeader'>i2b2 Query Report</div>"+
+			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> <span>打印报告</span></a>"+
+			"<div class='QRMainHeader'>i2b2 查询报告</div>"+
 			"<table id='queryDetailsTable'></table>"+
-			"<div class='descHead'>Query Definition11</div>"+
+			"<div class='descHead'>查询定义</div>"+
 			"<table id='qdHeaderTable'></table>"+
 			"<table id='qdContainerTable'></table><br>"+
 			"<table id='temporalQryEventsContainerTable'></table><br>"+
 			"<table id='temporalQryEventsRelationsTable'></table>"+
-			"<div id='qrsTitle' class='descHead'>Query Results</div>"+
+			"<div id='qrsTitle' class='descHead'>查询结果</div>"+
 			"<br><div id='queryResultsContainer'></div>" + 
-			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> <span>Print Report</span></a>"+
+			"<a class='printReportButton no-print' href='javascript:window.print()' title='Click here to print the report.'><img align='absbottom' border='0' src='assets/images/printer.png'/> <span>打印报告</span></a>"+
 			"</div>";
 			
 	this.PrintQueryBodyForPanel = 

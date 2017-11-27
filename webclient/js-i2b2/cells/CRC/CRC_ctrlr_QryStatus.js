@@ -317,7 +317,8 @@ i2b2.CRC.ctrlr.QueryStatus.prototype = function() {
 
 			self.dispDIV.innerHTML += '<div style="float:right">['+s+' secs]</div>';
 		} else {
-			self.dispDIV.innerHTML = '<div style="clear:both;"><div style="float:left; font-weight:bold"><span>Finished Query:</span> "'+self.QM.name+'"</div>';
+			// self.dispDIV.innerHTML = '<div style="clear:both;"><div style="float:left; font-weight:bold"><span>Finished Query:</span> "'+self.QM.name+'"</div>';
+			self.dispDIV.innerHTML = '<div style="clear:both;"><div style="float:left; font-weight:bold">完成查询:"'+self.QM.name+'"</div>';
 			self.dispDIV.innerHTML += '<div style="float:right">['+s+' secs]</div>';
 			
 			//Query Report BG
@@ -337,7 +338,7 @@ i2b2.CRC.ctrlr.QueryStatus.prototype = function() {
 		}
 		self.dispDIV.innerHTML += '</div>';
 		if ((!private_singleton_isRunning) && (undefined != self.QI.end_date)){
-			self.dispDIV.innerHTML += '<div style="margin-left:20px; clear:both; line-height:16px; "><span>Compute Time:</span> '+ (Math.floor((self.QI.end_date - self.QI.start_date)/100))/10 +' secs</div>';
+			self.dispDIV.innerHTML += '<div style="margin-left:20px; clear:both; line-height:16px; ">计算时间: '+ (Math.floor((self.QI.end_date - self.QI.start_date)/100))/10 +' secs</div>';
 		}
 		
 		var foundError = false;

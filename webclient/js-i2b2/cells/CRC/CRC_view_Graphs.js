@@ -31,7 +31,8 @@ console.time('execute time');
 	
 // Constants
 var msSpecialBreakdownSite = "";  // this constant designates a site from which the breakdown arrays will always be obtained
-var msStringDefineingNumberOfPatients = "number of patients";  // this constant is what appears in the breakdown text 
+// var msStringDefineingNumberOfPatients = "number of patients";  // this constant is what appears in the breakdown text 
+var msStringDefineingNumberOfPatients = "患者数";  // this constant is what appears in the breakdown text 
 //                            which is the number of patients and is lower cased and trimmed on both sides for comparison
 
 // create and save the screen objects and more constants
@@ -418,7 +419,7 @@ try {
 					        '<td style="color: darkblue; text-align: center; vertical-align: middle; font-size: 45px">'+sDisplayNumber+'</td>' +
 						'</tr>' +
                         '<tr style="background-color: #B0C4DE">' +
-					        '<td style="color: black; text-align: center; vertical-align: middle;"><span>For Query</span> '+asInputFragments[0][0]+'</td>' +
+					        '<td style="color: black; text-align: center; vertical-align: middle;">查询 '+asInputFragments[0][0]+'</td>' +
 						'</tr>' +
                         '<tr style="background-color: white">' +
 					        '<td style="color: red; text-align: center; vertical-align: middle;">&nbsp</td>' +
@@ -1009,7 +1010,7 @@ i2b2.CRC.view.graphs.returnTestString = function (isSHRINE) {
 		+ "75-84 years old: 4\n"
 		+ ">= 85 years old: 3\n"
 		+ "Not recorded: 0\n"
-		+ "Number of patients for"+" \"Circulatory sys@20:21:19\"\n"
+		+ "患者人数"+" \"Circulatory sys@20:21:19\"\n"
 		+ "patient_count: 66\n"
 		+ "Vital Status patient breakdown for \"Circulatory sys@20:21:19\"\n"
 		+ "Deceased: 1\n"
