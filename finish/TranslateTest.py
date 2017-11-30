@@ -29,36 +29,13 @@ def selectI2b2(table):
     for i in range(numrows):
         # 每次取出一行，放到row中，这是一个元组(id,name)
         row = cur.fetchone()
-        # 直接输出两个元素s
+        # 待翻译的英文
         r = row[0]
-        s = translationApi.getZnFromApi('http://47.94.148.72:1262/trans',r)
-        time.sleep(1000)
+        print r
+        #翻译的中文
+        s = translationApi.getZnFromApi(r)
+        print s
         updateZn(s, r, table)
-
-
-def selectZn(en):
-    """
-        传入英文获取中文
-        _:param 英文
-    """
-    conn = pymysql.connect("127.0.0.1", user='root', db='translate', password="root", charset="utf8")
-    en = en.replace('\'', '\\\'')
-    cur = conn.cursor()
-    sql = "SELECT zn FROM translation WHERE en='%s'" % en
-    # print sql
-    cur.execute(sql)
-    # 使用cur.rowcount获取结果集的条数
-    numrows = int(cur.rowcount)
-    # print numrows
-    for i in range(numrows):
-        # 每次取出一行，放到row中，这是一个元组(id,name)
-        row = cur.fetchone()
-        # 直接输出两个元素s
-        r = row[0]
-        if not r:
-            return None
-        else:
-            return row[0]
 
 
 def updateZn(zn, en, table):
@@ -68,18 +45,21 @@ def updateZn(zn, en, table):
         _:param en
         _:param table
     """
+    print("zn:"+zn+"en:"+en)
     updateApi.updateOrInsert(en, table)
     conn = psycopg2.connect(database="i2b2metadata", user="postgres", password="postgres", host="localhost",
                             port="5432")
     # 获取执行查询的对象
     cur = conn.cursor()
     en = en.replace('\'', '\'\'')
-    zn = zn.replace('\'', '\'\'')
+    # zn = zn.replace('\'', '\'\'')
     if zn is None:
         sql = "UPDATE " + table + " SET c_name='%s' WHERE c_name='%s'" % (en + '待翻译', en)
+        print sql
         cur.execute(sql)
     else:
         sql = "UPDATE " + table + " SET c_name='%s' WHERE c_name='%s'" % (zn, en)
+        print sql
         cur.execute(sql)
     conn.commit()
     cur.close()
@@ -87,8 +67,10 @@ def updateZn(zn, en, table):
 
 
 if __name__ == '__main__':
+    print "beginning ......"
     t1 = time.time()
     tb = openfileApi.openfile()
+    print tb
     selectI2b2(tb)
     t2 = time.time()
     time = t2 - t1

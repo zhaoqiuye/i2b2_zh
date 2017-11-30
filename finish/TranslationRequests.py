@@ -1,35 +1,31 @@
 # encoding: utf-8
-import time
+import sys
 
-import json
-import requests
+import requests, json
+from requests.adapters import HTTPAdapter
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
-def getZnFromApi(url, en, num_retries=3):
+def getZnFromApi(en):
     """
-    调用翻译接口
-    :param url:
+    翻译接口调用
     :param en:
-    :param num_retries:
     :return:
     """
+    print en
+    url = 'http://localhost:1262/trans'
     data = json.dumps({"src": en, "domain": "metadata"})
-    try:
-        s = requests.Session()
-        r = s.post(url, data)
-        r.raise_for_status()
-        ss = json.loads(r.text, encoding="utf-8")
-    except requests.HTTPError as e:
-        if num_retries > 0:
-            # 如果不是200就重试，每次递减重试次数
-            return getZnFromApi(url, en, num_retries - 1)
-    except requests.exceptions.ConnectionError as e:
-        return
-    if ss['exception']:
-        return ss['result']
+    s = requests.Session()
+    r = s.post(url, data)
+    ss = json.loads(r.text, encoding="utf-8")
+    fr = ss['exception']
+    rs = ss['result']
+    print("from %s result %s" % (fr, rs))
+    s.close()
+    if fr:
+        return rs
     else:
         return en
 
-
-if __name__ == '__main__':
-    print getZnFromApi('http://47.94.148.72:1262/trans','test')
