@@ -1,7 +1,5 @@
 # encoding: utf-8
-import random
-import time
-from sqlalchemy import create_engine, Column, Integer, String, UniqueConstraint, Index, TIMESTAMP, Text
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from ChildrenDataImport import Children, ObservationFacts, ProviderDimension, EncounterMapping, PatientDimension
 
@@ -39,8 +37,6 @@ def insertAllData(qlist):
     print "insert data ......."
     DBSession = sessionmaker(bind=enginepsqli2b2)
     session = DBSession()
-    # session.add_all(queryList)
-    # app=App()
     provider = ProviderDimension()
     for ss in qlist:
         en = EncounterMapping(ss.MrNum, ss.MrNum, ss.PatientId)
@@ -52,6 +48,7 @@ def insertAllData(qlist):
         session.merge(patientDimension)
         session.flush()
     session.commit()
+    session.close()
 
 
 if __name__ == '__main__':

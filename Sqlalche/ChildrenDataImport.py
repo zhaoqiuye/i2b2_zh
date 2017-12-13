@@ -1,9 +1,7 @@
 # encoding: utf-8
-# sqlalchemy 测试
 import random
 import time
-from sqlalchemy import create_engine, Column, Integer, String, UniqueConstraint, Index, TIMESTAMP, Text
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Column, Integer, String, TIMESTAMP, Text
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -153,13 +151,3 @@ class ObservationFacts(Base):
         self.valtype_cd = 'N'
         self.tval_char = 'E'
         self.text_search_index = random.sample(self.ob_list, 1)[0]
-
-# creatDatabaseMysql()
-# pa=PatientDimension()
-# pa.patient_num="45681"
-# pa.age_in_years_num=14
-# pa.sex_cd="M"
-# pa.birth_date="2016-01-15"
-# pa.marital_status_cd="single"
-# pa.race_cd="asian"
-# insertAllData(pa)
