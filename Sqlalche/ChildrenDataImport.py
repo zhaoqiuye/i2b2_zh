@@ -1,4 +1,9 @@
 # encoding: utf-8
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 import random
 import time
 from datetime import datetime
@@ -55,6 +60,7 @@ class PatientDimension(Base):
         self.download_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         self.import_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         self.update_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        self.sourcesystem_cd = 'DEMO'
 
 
 class Children(Base):

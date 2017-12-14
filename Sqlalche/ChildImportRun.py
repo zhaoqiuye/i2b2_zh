@@ -1,9 +1,13 @@
 # encoding: utf-8
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf8')
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from ChildrenDataImport import Children, ObservationFacts, ProviderDimension, EncounterMapping, PatientDimension
 
-enginepsqli2b2 = create_engine("postgresql://postgres:postgres@192.168.249.131:5432/i2b2demodata", max_overflow=5,
+enginepsqli2b2 = create_engine("postgresql://postgres:postgres@59.110.164.110:5432/i2b2demodata", max_overflow=5,
                                encoding='utf8', echo=True)
 enginepsqlCH = create_engine("postgresql://postgres:postgres@59.110.164.110:5432/CH", max_overflow=5, encoding='utf8',
                              echo=True)
@@ -36,19 +40,22 @@ def insertAllData(qlist):
     print "insert data ......."
     DBSession = sessionmaker(bind=enginepsqli2b2)
     session = DBSession()
-    provider = ProviderDimension()
     try:
         for ss in qlist:
-            en = EncounterMapping(ss.MrNum, ss.MrNum, ss.PatientId)
-            ob = ObservationFacts(ss.MrNum, ss.PatientId, 'ICD9:038', provider.provider_id)
-            patientDimension = PatientDimension(ss.PatientId, ss.Birthday, ss.Sex, ss.Age)
-            session.merge(provider)
-            session.merge(en)
-            session.merge(ob)
-            session.merge(patientDimension)
-            session.flush()
-        session.commit()
-        session.close()
+            if ss.Concept_dimension == '败血症':
+                en = EncounterMapping(ss.MrNum, ss.MrNum, ss.PatientId)
+                ob = ObservationFacts(ss.MrNum, ss.PatientId, 'ICD9:038', 'LCS-I2B2:PEDIATRIC')
+                obsex = ObservationFacts(ss.MrNum, ss.PatientId, 'DEM|SEX:m', 'LCS-I2B2:PEDIATRIC')
+                if ss.Sex == '2':
+                    obsex = ObservationFacts(ss.MrNum, ss.PatientId, 'DEM|SEX:f', 'LCS-I2B2:PEDIATRIC')
+                patientDimension = PatientDimension(ss.PatientId, ss.Birthday, ss.Sex, ss.Age)
+                session.merge(en)
+                session.merge(ob)
+                session.merge(obsex)
+                session.merge(patientDimension)
+                session.flush()
+            session.commit()
+            session.close()
     except:
         session.rollback()
 
