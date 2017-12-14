@@ -20,11 +20,10 @@ def queryAllData():
     alist = session.query(Children).all()
     qlist = []
     for qs in alist:
-        print "病人信息%s,%s" % (qs.PatientId, qs.MrNum)
-        qlist.append(Children(qs.MrNum, qs.Concept_dimension))
+        print "病人信息id:%s,num:%s,birth:%s,sex:%s,age:%s" % (qs.PatientId, qs.MrNum, qs.Birthday, qs.Sex, qs.Age)
+        qlist.append(Children(qs.MrNum, qs.Concept_dimension, qs.Birthday, qs.Age, qs.Sex))
     insertAllData(qlist)
     session.commit()
-    session.expunge_all()
     session.close()
 
 
@@ -38,17 +37,20 @@ def insertAllData(qlist):
     DBSession = sessionmaker(bind=enginepsqli2b2)
     session = DBSession()
     provider = ProviderDimension()
-    for ss in qlist:
-        en = EncounterMapping(ss.MrNum, ss.MrNum, ss.PatientId)
-        ob = ObservationFacts(ss.MrNum, ss.PatientId, 'ICD9:038', provider.provider_id)
-        patientDimension = PatientDimension(ss.PatientId)
-        session.merge(provider)
-        session.merge(en)
-        session.merge(ob)
-        session.merge(patientDimension)
-        session.flush()
-    session.commit()
-    session.close()
+    try:
+        for ss in qlist:
+            en = EncounterMapping(ss.MrNum, ss.MrNum, ss.PatientId)
+            ob = ObservationFacts(ss.MrNum, ss.PatientId, 'ICD9:038', provider.provider_id)
+            patientDimension = PatientDimension(ss.PatientId, ss.Birthday, ss.Sex, ss.Age)
+            session.merge(provider)
+            session.merge(en)
+            session.merge(ob)
+            session.merge(patientDimension)
+            session.flush()
+        session.commit()
+        session.close()
+    except:
+        session.rollback()
 
 
 if __name__ == '__main__':

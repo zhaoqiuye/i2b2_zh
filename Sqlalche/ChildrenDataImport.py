@@ -1,6 +1,8 @@
 # encoding: utf-8
 import random
 import time
+from datetime import datetime
+
 from sqlalchemy import Column, Integer, String, TIMESTAMP, Text
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -32,9 +34,27 @@ class PatientDimension(Base):
     import_date = Column(TIMESTAMP(6))
     sourcesystem_cd = Column(String(50))
 
-    def __init__(cls, patient_num):
+    def __init__(cls, patient_num, birthday, sex, age):
         self = cls
         self.patient_num = patient_num
+        if int(birthday[6:8]) > 50:
+            birthday = birthday[0:6] + str(int(birthday[6:8]) + 1900) + birthday[8:]
+            print birthday
+        else:
+            birthday = birthday[0:6] + str(int(birthday[6:8]) + 2000) + birthday[8:]
+            print birthday
+        self.birth_date = datetime.strptime(birthday, "%m/%d/%Y %H:%M:%S")
+        if sex == 1:
+            self.sex_cd = 'M'
+        else:
+            self.sex_cd = 'F'
+        self.age_in_years_num = age
+        self.language_cd = 'Chinese'
+        self.marital_status_cd = 'single'
+        self.race_cd = 'asian'
+        self.download_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        self.import_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        self.update_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
 
 
 class Children(Base):
@@ -47,12 +67,18 @@ class Children(Base):
     PatientId = Column('id', Integer, primary_key=True, autoincrement=True)
     MrNum = Column('病案号', Text)
     Concept_dimension = Column('出院诊断其他诊断4', Text)
+    Sex = Column('性别', Text)
+    Birthday = Column('出生日期', Text)
+    Age = Column('年龄')
 
-    def __init__(cls, MrNum, concept_dimension):
+    def __init__(cls, MrNum, Concept_dimension, Birthday, Age, Sex):
         self = cls
         self.PatientId = random.sample(b_list, 1)[0]
         self.MrNum = MrNum
-        self.Concept_dimension = concept_dimension
+        self.Concept_dimension = Concept_dimension
+        self.Sex = Sex
+        self.Birthday = Birthday
+        self.Age = Age
 
 
 class EncounterMapping(Base):
