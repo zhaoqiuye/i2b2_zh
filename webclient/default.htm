@@ -492,7 +492,7 @@
                 </a> 
                 <a href="JavaScript:i2b2.ONT.view.main.ZoomView();">
                     <img id="ontZoomImg" width="16" height="16" border="0" src="js-i2b2/cells/ONT/assets/zoom_icon.gif" alt="Resize Workspace" title="Resize Workspace" />
-                </a>>
+                </a>
             </div>
         </div>
         <div id="ontMainDisp">
@@ -1052,9 +1052,9 @@
                             By
                             <select id="byspan1[0]" name="byspan1[0]" style="width:50px;">
                                 <option value="GREATER">&gt;</option>
-                                <option value="GREATEREQUAL" selected>&gt;=</option>
+                                <option value="GREATEREQUAL" selected>&ge;</option>
                                 <option value="EQUAL">=</option>
-                                <option value="LESSEQUAL">&lt;=</option>
+                                <option value="LESSEQUAL">&le;</option>
                                 <option value="LESS">&lt;</option>
                             </select>
                             <input id="bytimevalue1[0]" name="bytimevalue1[0]" style="width:50px;" type="text"
@@ -1070,9 +1070,9 @@
                             And
                             <select id="byspan2[0]" name="byspan2[0]" style="width:50px;">
                                 <option value="GREATER">&gt;</option>
-                                <option value="GREATEREQUAL">&gt;=</option>
+                                <option value="GREATEREQUAL">&ge;</option>
                                 <option value="EQUAL">=</option>
-                                <option value="LESSEQUAL" selected>&lt;=</option>
+                                <option value="LESSEQUAL" selected>&le;</option>
                                 <option value="LESS">&lt;</option>
                             </select>
                             <input id="bytimevalue2[0]" name="bytimevalue2[0]" style="width:50px;" type="text"
@@ -1626,25 +1626,25 @@
                         <div class="mlvMode">
                             <input name="mlvfrmType" id="mlvfrmTypeNONE" value="NO_VALUE" type="radio"
                                    checked="checked"/>
-                            No value
+                            <span>No value</span>
                         </div>
                         <div class="mlvMode">
                             <input name="mlvfrmType" id="mlvfrmTypeFLAG" value="BY_FLAG" type="radio"/>
-                            By flag
+                            <span>By flag</span>
                         </div>
                         <div class="mlvMode">
                             <input name="mlvfrmType" id="mlvfrmTypeVALUE" value="BY_VALUE" type="radio"/>
-                            By value
+                            <span>By value</span>
                         </div>
                     </div>
                     <div class="mlvInputGroup">
-                        <div id="mlvfrmFLAG" style="display:none"> Please select a range:<br/>
+                        <div id="mlvfrmFLAG" style="display:none"><span> Please select a range</span>:<br/>
                             <select id='mlvfrmFlagValue'>
                                 <option value="">Loading...</option>
                             </select>
                         </div>
                         <div id="mlvfrmVALUE" style="display:none">
-                            <p id="mlvfrmEnterOperator"> Please select operator:<br/>
+                            <p id="mlvfrmEnterOperator"> <span>Please select operator</span>:<br/>
                                 <select id='mlvfrmOperator'>
                                     <option value="LT">LESS THAN (&lt;)</option>
                                     <option value="LE">LESS THAN OR EQUAL TO (&lt;=)</option>
@@ -1654,7 +1654,7 @@
                                     <option value="GE">GREATER THAN OR EQUAL (&gt;=)</option>
                                 </select>
                             </p>
-                            <p id="mlvfrmEnterStringOperator"> Please select operator:<br/>
+                            <p id="mlvfrmEnterStringOperator"> <span>Please select operator</span>:<br/>
                                 <select id='mlvfrmStringOperator'>
                                     <option value="LIKE[contains]">Contains</option>
                                     <option value="LIKE[exact]">Exact</option>
@@ -1662,20 +1662,20 @@
                                     <option value="LIKE[end]">Ends With</option>
                                 </select>
                             </p>
-                            <p id="mlvfrmEnterVal"> Please enter a value:<br/>
+                            <p id="mlvfrmEnterVal"> <span>Please enter a value</span>:<br/>
                                 <input id="mlvfrmNumericValue" class="numInput"/>
                             </p>
-                            <p id="mlvfrmEnterVals" style="display:none">Please enter values:<br/>
+                            <p id="mlvfrmEnterVals" style="display:none"><span>Please enter values</span>:<br/>
                                 <input id="mlvfrmNumericValueLow" class="numInput"/>
                                 &nbsp;-&nbsp;
                                 <input id="mlvfrmNumericValueHigh" class="numInput"/>
                             </p>
-                            <p id="mlvfrmEnterStr">Enter Search Text:<br/>
+                            <p id="mlvfrmEnterStr"><span>Enter Search Text</span>:<br/>
                                 <input id="mlvfrmStrValue" class="strInput"/>
                             </p>
                             <p id="mlvfrmEnterDbOperator">
                                 <input id="mlvfrmDbOperator" type="checkbox"/>
-                                Use Database Operators <i>(Advanced Searching)</i><br/>
+                                <span>Use Database Operators <i>(Advanced Searching)</i></span><br/>
                             </p>
                             <p id="mlvfrmEnterEnum">Please select a value:<br/>
                                 <select id="mlvfrmEnumValue" class="enumInput" multiple="multiple" size="5"
@@ -1693,8 +1693,8 @@
                         <!-- <div id="mlvfrmBarContainer" class="barContainer" style="white-space:nowrap; display:none"> -->
                         <div style="height: 55px">
                             <!-- top text -->
-                            <div>Click on a bar segment to help specify a value or range:</div>
-                            <div>Range in <span id="mlvfrmLblUnits" style="font-decoration:italic bold">mm/Hg</span>
+                            <div><span>Click on a bar segment to help specify a value or range</span>:</div>
+                            <div><span>Range in</span> <span id="mlvfrmLblUnits" style="font-decoration:italic bold">mm/Hg</span>
                             </div>
                             <!-- bars are drawn -->
                             <div id="barToxL"

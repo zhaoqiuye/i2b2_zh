@@ -539,7 +539,7 @@ i2b2.events.afterCellInit.subscribe(
 						{ text: "显示",	onclick: { fn: i2b2.CRC.view.history.doDisplay } },
 						{ text: "重命名", 	onclick: { fn: i2b2.CRC.view.history.doRename } },
 						{ text: "删除", 		onclick: { fn: i2b2.CRC.view.history.doDelete } },
-						{ text: "查找修饰符",	onclick: { fn: i2b2.CRC.view.history.doRefreshAll } }
+						{ text: "全部刷新",	onclick: { fn: i2b2.CRC.view.history.doRefreshAll } }
 					] }  
 			); 
 			i2b2.CRC.view.history.ContextMenu.subscribe("triggerContextMenu",i2b2.CRC.view.history.ContextMenuValidate); 

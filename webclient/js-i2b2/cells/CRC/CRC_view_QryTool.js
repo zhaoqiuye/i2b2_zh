@@ -138,11 +138,11 @@ i2b2.CRC.view.QT.ContextMenuPreprocess = function(p_oEvent) {
 						var lvMetaDatas1 = i2b2.h.XPath(i2b2.CRC.view.QT.contextRecord.origData.xmlOrig, 'metadataxml/ValueMetadata[string-length(Version)>0]');
 						if (lvMetaDatas1.length > 0) {
 						
-							mil.push( { text: "Set Modifier Value", onclick: { fn: op.ContextMenuRouter, obj: 'setmodifier' }} );					
+							mil.push( { text: "设置修饰符值", onclick: { fn: op.ContextMenuRouter, obj: 'setmodifier' }} );					
 						}
 						var lvMetaDatas2 = i2b2.h.XPath(i2b2.CRC.view.QT.contextRecord.origData.parent.xmlOrig, 'metadataxml/ValueMetadata[string-length(Version)>0]');
 						if (lvMetaDatas2.length > 0) {
-							mil.push( { text: "Set Value...", onclick: { fn: op.ContextMenuRouter, obj: 'labvalues' }} );
+							mil.push( { text: "设置值...", onclick: { fn: op.ContextMenuRouter, obj: 'labvalues' }} );
 						}
 						
 					} else {
@@ -169,7 +169,7 @@ i2b2.CRC.view.QT.ContextMenuPreprocess = function(p_oEvent) {
 
 						var lvMetaDatas = i2b2.h.XPath(i2b2.CRC.view.QT.contextRecord.origData.xmlOrig, 'metadataxml/ValueMetadata[string-length(Version)>0]');
 						if (lvMetaDatas.length > 0) {
-							mil.push( { text: "Set Value...", onclick: { fn: op.ContextMenuRouter, obj: 'labvalues' }} );
+							mil.push( { text: "设置值...", onclick: { fn: op.ContextMenuRouter, obj: 'labvalues' }} );
 						}
 					}
 					i2b2.CRC.view.QT.ContextMenu.clearContent();

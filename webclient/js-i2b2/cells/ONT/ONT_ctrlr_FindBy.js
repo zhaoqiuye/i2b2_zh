@@ -21,8 +21,8 @@ i2b2.ONT.ctrlr.FindBy = {
 		var f = $('ontFormFindName');
 		var search_info = {};
 		search_info.SearchStr = f.ontFindNameMatch.value;
-		if (search_info.SearchStr.length < 3) {
-			alert("Search string must be at least 3 characters.");
+		if (search_info.SearchStr.length < 2) {
+			alert("Search string must be at least 2 characters.");
 		} else {
 		search_info.Category = f.ontFindCategory.options[f.ontFindCategory.selectedIndex].value;
 		search_info.Strategy = f.ontFindStrategy.options[f.ontFindStrategy.selectedIndex].value;

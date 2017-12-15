@@ -44,14 +44,9 @@ function buttonExcute(arg){
  });
 }
 
-//文章中去除html标签
-function delHtmlTag(str){  
-  return str.replace(/<[^>]+>/g,"");//去掉所有的html标记  
-}  
-
 i2b2.events.afterLogin.subscribe(function(){
     //default.htm页面
-    jQuery("#menubutton1select option,#queryBalloonBox .queryBalloon,#optionsHistory span,#optionsQT span,#optionsOntNav span,#optionsOntFind span,#ontFindCoding option,#ontFindCategory option,.temporalControl a,.temporalControl a,#temporalbuilder_0 option,#addDefineGroup-button,#groupCount span,#queryBalloonAnd1,#queryBalloonAnd2,#queryBalloon1,#queryPanelTitle1,#queryPanelTitle2,#queryPanelTitle3,.qryButtonOccurs .occurs,.queryLabel,.yui-nav li a,#anaPluginView option,.qryButtonExclude a,.qryButtonDate a,#newBox a,#ontFormFindName option,.tabBox div,#topBar a:lt(2),#topBar a:gt(2),#ontFindDisp a,#crcFindCategory option,#crcFindStrategy option,.initialMsg a,#crcFindButton a,#PluginListBox span a:eq(2),.topmenu span,#tabNavigate div,#tabFind div,#runBoxText,#ontFormFindName table option").each(function(){
+    jQuery("#menubutton1select option,#optionsHistory span,#optionsQT span,#optionsOntNav span,#optionsOntFind span,#ontFindCoding option,#ontFindCategory option,.temporalControl a,.temporalControl a,#temporalbuilder_0 option,#addDefineGroup-button,#groupCount span,#queryBalloonAnd1,#queryBalloonAnd2,#queryPanelTitle1,#queryPanelTitle2,#queryPanelTitle3,.qryButtonOccurs .occurs,.queryLabel,.yui-nav li a,#anaPluginView option,.qryButtonExclude a,.qryButtonDate a,#newBox a,#ontFormFindName option,.tabBox div,#topBar a:lt(2),#topBar a:gt(2),#ontFindDisp a,#crcFindCategory option,#crcFindStrategy option,.initialMsg a,#crcFindButton a,#PluginListBox span a:eq(2),.topmenu span,#tabNavigate div,#tabFind div,#runBoxText,#ontFormFindName table option").each(function(){
         translate(this);
     });
 
@@ -60,16 +55,10 @@ i2b2.events.afterLogin.subscribe(function(){
         translate(this);
     });
 
-    // jQuery("#modifier-viewer-body center input").each(function(){
-    //     transButton(this);
-    // });
-
-    //帮助
-    // jQuery("div").delegate("#helpLink","click",function(){
-    //     jQuery("#treeDiv1 .ygtvcontent a").each(function(){
-    //         translate(this);
-    //     });
-    // });
+    jQuery("#itemLabRange .hd,#itemLabRange #valueContraintText,#itemLabRange .mlvMode span,#itemLabRange .mlvInputGroup option,#mlvfrmVALUE p span,#mlvfrmBarContainer span,#mlvfrmUnits option,#mlvUnitExcluded").each(function(){
+        translate(this);
+    });
+    
 });
 
 jQuery(document).ready(function(){
@@ -78,22 +67,17 @@ jQuery(document).ready(function(){
     });
 
     //点击插件按钮
-    var flag = true;
     jQuery("#pluginsMenu").on("click",function(){
-        if(flag){
-            jQuery(".txtBoundBox div,#anaPluginCats option").each(function(){
-                translate(this);
-            });
-            flag = false;
-        }             
+        setTimeout("buttonExcute('.txtBoundBox div,#anaPluginCats option')",1);
     });
-    var flag1 = true;
+
+    var flag = true;
     jQuery(".initialMsg a").on("click",function(){
         if(flag1){
             jQuery(".txtBoundBox div,#anaPluginCats option,.txtBoundBox.NAME").each(function(){
                 translate(this);
             });
-            flag1 = false;
+            flag = false;
         }
     });
     jQuery(".txtBoundBox.NAME").on("click",function(){
@@ -138,16 +122,6 @@ jQuery(document).ready(function(){
         });
     });
 
-    //清空 Add New
-    // jQuery(".qryPanelClear,[alt='Add New'],#newBox").click(function(){
-    //     setTimeout("buttonExcute('#queryPanelTitle2,#queryPanelTitle3')",0.01);
-    // });
- 
-    //点击清空按钮
-    // jQuery("#newBox").click(function(){
-    //     setTimeout("buttonExcute('#yui-gen0 .yuimenuitemlabel,#queryTiming-button,#defineTemporal-button,#menubutton1select option,.relationshipAmongEvents option')",0.01);
-    // });
-
     //添加查询时间按钮
     var count = 0;
     jQuery("center .temporalControl a:eq(0)").on("click",function(){
@@ -155,28 +129,13 @@ jQuery(document).ready(function(){
             count = 0;
         }
         ++count;
-        setTimeout("buttonExcute('#temporalbuilder_"+count+" option')",0.01);
+        setTimeout("buttonExcute('#temporalbuilder_"+count+" option')",1);
 
        jQuery("center .temporalControl a:eq(1)").on("click",function(){
             count = count - 1;
         });            
     });
 
-
-    // //导航条款选项
-    // function okButton(arg){
-    // 	let flag2 = true;
-	   //  jQuery(arg).on("click",function(){
-	   //  	if(flag2){
-	   //  		setTimeout("buttonExcute('.ft button')",.1);
-	   //  		flag2 = false;
-	   //  	}
-	   //  });
-    // }
-    // okButton("#ontTopTabs [alt='Show Options']");
-    // okButton("#crcHistoryBox [alt='Show Options']");
-    // okButton("#crcQueryToolBox [alt='Show Options']");
-    // okButton("#runBoxText");  
 });
 
 

@@ -432,20 +432,20 @@ i2b2.WORK.view.main.ContextMenuPreprocess = function(p_oEvent){
             switch (tvNode.data.i2b2_SDX.origData.visual) {
                 case "CA":
                     // root node
-                    mil.push({text: "New Folder",	onclick: {fn: op,obj: 'newFolder'}	});
+                    mil.push({text: "新建文件夹",	onclick: {fn: op,obj: 'newFolder'}	});
                     break;
                 case "FA":
                     // folder node
-                    mil.push({text: "Rename",		onclick: {fn: op, obj: 'rename'}	});
-                    mil.push({text: "Annotate",	onclick: {fn: op, obj: 'annotate'}	});
-                    mil.push({text: "Delete",		onclick: {fn: op, obj: 'delete'}	});
-                    mil.push({text: "New Folder",	onclick: {fn: op, obj: 'newFolder'}	});
+                    mil.push({text: "重命名",		onclick: {fn: op, obj: 'rename'}	});
+                    mil.push({text: "注释",	onclick: {fn: op, obj: 'annotate'}	});
+                    mil.push({text: "删除",		onclick: {fn: op, obj: 'delete'}	});
+                    mil.push({text: "新建文件夹",	onclick: {fn: op, obj: 'newFolder'}	});
                     break;
                 case "ZA":
                     // data saved to workplace
-                    mil.push({text: "Rename",		onclick: {fn: op, obj: 'rename'}	});
-                    mil.push({text: "Annotate",	onclick: {fn: op, obj: 'annotate'}	});
-                    mil.push({text: "Delete",		onclick: {fn: op, obj: 'delete'}	});
+                    mil.push({text: "重命名",		onclick: {fn: op, obj: 'rename'}	});
+                    mil.push({text: "注释",	onclick: {fn: op, obj: 'annotate'}	});
+                    mil.push({text: "删除",		onclick: {fn: op, obj: 'delete'}	});
                     break;
                 default:
                     doNotShow = true;

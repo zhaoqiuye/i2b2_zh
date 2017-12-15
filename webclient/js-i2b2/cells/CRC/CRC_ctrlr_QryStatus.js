@@ -333,7 +333,7 @@ i2b2.CRC.ctrlr.QueryStatus.prototype = function() {
 			//End Query Report BG
 			//		self.dispDIV.innerHTML += '<div style="margin-left:20px; clear:both; height:16px; line-height:16px; "><div height:16px; line-height:16px; ">Compute Time: ' + (Math.floor((self.QI.end_date - self.QI.start_date)/100))/10 + ' secs</div></div>';
 			//		self.dispDIV.innerHTML += '</div>';
-			$('runBoxText').innerHTML = "执行查询";
+			$('runBoxText').innerHTML = "运行查询";
 
 		}
 		self.dispDIV.innerHTML += '</div>';
