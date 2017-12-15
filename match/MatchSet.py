@@ -33,11 +33,11 @@ class ChinesePharma(Base):
 
 
 def queryMeicData():
-    '''
+    """
     查询metatdata数据
     :rtype: object
     :return:
-    '''
+    """
     print "query start ...."
     DBSession = sessionmaker(bind=enginepsqli2b2)
     session = DBSession()
@@ -52,11 +52,11 @@ def queryMeicData():
 
 
 def queryChineseData():
-    '''
+    """
     查询中国药典数据
     :rtype: object
     :return:
-    '''
+    """
     print "query start ...."
     DBSession = sessionmaker(bind=enginepsqlChinese)
     session = DBSession()
