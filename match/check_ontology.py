@@ -4,7 +4,7 @@ import logging
 logging.basicConfig(filename='check.log', filemode='w', level=logging.DEBUG)
 logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s')
 from fuzzywuzzy import fuzz, process
-from MatchSet import queryChineseData, queryMeciData, insertMeciData, Mecidine
+from MatchSet import queryChineseData, queryMeciData, insertMeciData
 
 if 1:
     """
@@ -13,7 +13,7 @@ if 1:
     # test_refSet=set([u"数据分析师", u"数据挖掘工程师", u"大数据开发工程师", u"机器学习工程师", u"算法工程师", u"数据库管理", u"商业分析师", u"数据科学家", u"首席数据官", u"数据产品经理", u"数据运营", u"大数据架构师"])
     # testSet = set([u"算法工程师", u"数据库管理", u"商业分析师", u"数据挖掘师"])
     test_refSet = set(queryChineseData())
-    testSet = set(queryMeciData())
+    testSet = set(queryMeciData('exp2'))
 
 
 class RefSet(object):
@@ -44,7 +44,7 @@ def exp1():
     list=refSet.intersect(testSet)
     for ref in list:
         print ref
-        insertMeciData(ref)
+        insertMeciData(ref,ref,'bestmatch')
 
 def exp2():
     """
@@ -54,6 +54,7 @@ def exp2():
     matchDict = refSet.fuzzyMatch(testSet.difference(refSet.dataSet))
     for key, item in matchDict.items():
         print key, ':', item[0], item[1]
+        insertMeciData(key,item[0],str(item[1]))
 
 
 if __name__ == '__main__':

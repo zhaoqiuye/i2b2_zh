@@ -3,6 +3,7 @@ import sys
 
 from sqlalchemy.dialects.postgresql import TIMESTAMP
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.sql.elements import and_
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -10,7 +11,7 @@ from sqlalchemy import create_engine, Column, String, Integer, Text, TIMESTAMP
 
 from sqlalchemy.orm import sessionmaker
 
-enginepsqli2b2 = create_engine("postgresql://postgres:postgres@192.168.249.131:5432/i2b2metadata", max_overflow=5,
+enginepsqli2b2 = create_engine("postgresql://postgres:postgres@59.110.164.110:5432/i2b2metadata", max_overflow=5,
                                encoding='utf8', echo=True)
 Base = declarative_base()
 
@@ -69,16 +70,17 @@ class Mecidine(Base):
         self.c_columndatatype = c_columndatatype
         self.c_operator = c_operator
         self.c_dimcode = c_dimcode
-        self.c_comment=c_comment
-        self.c_tooltip=c_tooltip
-        self.m_applied_path=m_applied_path
-        self.update_date=update_date
-        self.download_date=download_date
-        self.import_date=import_date
-        self.valuetype_cd=valuetype_cd
-        self.m_exclusion_cd=m_exclusion_cd
-        self.c_path=c_path
-        self.c_symbol=c_symbol
+        self.c_comment = c_comment
+        self.c_tooltip = c_tooltip
+        self.m_applied_path = m_applied_path
+        self.update_date = update_date
+        self.download_date = download_date
+        self.import_date = import_date
+        self.valuetype_cd = valuetype_cd
+        self.m_exclusion_cd = m_exclusion_cd
+        self.c_path = c_path
+        self.c_symbol = c_symbol
+
 
 def insertMeciData():
     """
@@ -90,17 +92,17 @@ def insertMeciData():
     print "insert data start ...."
     DBSession = sessionmaker(bind=enginepsqli2b2)
     session = DBSession()
-    melist=session.query(Mecidine).filter(Mecidine.c_name=='59715').all()
-    for m in melist:
-        me=Mecidine(m.c_hlevel, m.c_name, m.c_fullname, m.c_synonym_cd, m.c_visualattributes, m.c_totalnum,
-                 m.c_basecode, m.c_metadataxml, m.c_facttablecolumn, m.c_tablename, m.c_columnname, m.c_columndatatype,
-                 m.c_operator, m.c_dimcode, m.c_comment, m.c_tooltip, m.m_applied_path, m.update_date, m.download_date,
-                 m.import_date, m.sourcesystem_cd, m.valuetype_cd, m.m_exclusion_cd, m.c_path, m.c_symbol,
-                 m.c_name, 'bestmatch')
-        session.merge(me)
+    alist = session.query(Mecidine).filter(
+        and_(Mecidine.c_fullname.like('%Medications%'), Mecidine.tempNameAttr != None)).all()
+    print alist
     session.commit()
     session.close()
 
 
 if __name__ == '__main__':
-    insertMeciData()
+    flag=5
+    if flag==2:
+        ali=[1,5]
+    if flag==5:
+        ali=[2,9]
+    print ali

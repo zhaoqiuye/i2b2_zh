@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 reload(sys)
 sys.setdefaultencoding('utf8')
-from sqlalchemy import create_engine, Column, String, Integer, Text, TIMESTAMP
+from sqlalchemy import create_engine, Column, String, Integer, Text, TIMESTAMP, and_
 
 enginepsqli2b2 = create_engine("postgresql://postgres:postgres@localhost:5432/i2b2metadata", max_overflow=5,
                                encoding='utf8', echo=True)
@@ -19,18 +19,18 @@ Base = declarative_base()
 class Mecidine(Base):
     __tablename__ = 'i2b2'
 
-    c_hlevel = Column(Integer)
-    c_name = Column(String(2000))
+    c_hlevel = Column(Integer, primary_key=True)
+    c_name = Column(String(2000), primary_key=True)
     c_fullname = Column(String(700), primary_key=True)
-    c_synonym_cd = Column(String)
-    c_visualattributes = Column(String(1))
+    c_synonym_cd = Column(String, primary_key=True)
+    c_visualattributes = Column(String(1), primary_key=True)
     c_totalnum = Column(Integer)
     c_basecode = Column(String)
     c_metadataxml = Column(Text)
-    c_facttablecolumn = Column(String(50))
-    c_tablename = Column(String(50))
-    c_columnname = Column(String(50))
-    c_columndatatype = Column(String(50))
+    c_facttablecolumn = Column(String(50),primary_key=True)
+    c_tablename = Column(String(50),primary_key=True)
+    c_columnname = Column(String(50),primary_key=True)
+    c_columndatatype = Column(String(50),primary_key=True)
     c_operator = Column(String(10))
     c_dimcode = Column(String(700))
     c_comment = Column(Text)
@@ -70,16 +70,17 @@ class Mecidine(Base):
         self.c_columndatatype = c_columndatatype
         self.c_operator = c_operator
         self.c_dimcode = c_dimcode
-        self.c_comment=c_comment
-        self.c_tooltip=c_tooltip
-        self.m_applied_path=m_applied_path
-        self.update_date=update_date
-        self.download_date=download_date
-        self.import_date=import_date
-        self.valuetype_cd=valuetype_cd
-        self.m_exclusion_cd=m_exclusion_cd
-        self.c_path=c_path
-        self.c_symbol=c_symbol
+        self.c_comment = c_comment
+        self.c_tooltip = c_tooltip
+        self.m_applied_path = m_applied_path
+        self.update_date = update_date
+        self.download_date = download_date
+        self.import_date = import_date
+        self.valuetype_cd = valuetype_cd
+        self.m_exclusion_cd = m_exclusion_cd
+        self.c_path = c_path
+        self.c_symbol = c_symbol
+
 
 class ChinesePharma(Base):
     __tablename__ = 'ChinesePharma'
@@ -88,16 +89,24 @@ class ChinesePharma(Base):
     type = Column(String(255))
 
 
-def queryMeciData():
+def queryMeciData(flag):
     """
     查询metadata数据
     :rtype: object
+    :param: flag
     :return:
     """
     print "query start ...."
     DBSession = sessionmaker(bind=enginepsqli2b2)
     session = DBSession()
-    alist = session.query(Mecidine).filter(Mecidine.c_fullname.like('%Medications%')).all()
+    print flag
+    if flag == 'exp1':
+        print 'exp1'
+        alist = session.query(Mecidine).filter(Mecidine.c_fullname.like('%Medications%')).all()
+    if flag == 'exp2':
+        print 'exp2'
+        alist = session.query(Mecidine).filter(
+            and_(Mecidine.c_fullname.like('%Medications%'), Mecidine.tempNameAttr == None)).all()
     qlist = []
     for qs in alist:
         qlist.append(qs.c_name)
@@ -125,23 +134,26 @@ def queryChineseData():
     return qlist
 
 
-def insertMeciData(cName):
+def insertMeciData(cName, zname, flag):
     """
-    insert数据
-    :param data:
-    :param data:
+    update数据添加flag
+    :param cName:
+    :param flag:
     :return:
     """
     print "update data start ...."
     DBSession = sessionmaker(bind=enginepsqli2b2)
     session = DBSession()
-    melist=session.query(Mecidine).filter(Mecidine.c_name==cName).all()
+    melist = session.query(Mecidine).filter(Mecidine.c_name == cName).all()
     for m in melist:
-        me=Mecidine(m.c_hlevel, m.c_name, m.c_fullname, m.c_synonym_cd, m.c_visualattributes, m.c_totalnum,
-                 m.c_basecode, m.c_metadataxml, m.c_facttablecolumn, m.c_tablename, m.c_columnname, m.c_columndatatype,
-                 m.c_operator, m.c_dimcode, m.c_comment, m.c_tooltip, m.m_applied_path, m.update_date, m.download_date,
-                 m.import_date, m.sourcesystem_cd, m.valuetype_cd, m.m_exclusion_cd, m.c_path, m.c_symbol,
-                 m.c_name, 'bestmatch')
+        me = Mecidine(m.c_hlevel, m.c_name, m.c_fullname, m.c_synonym_cd, m.c_visualattributes, m.c_totalnum,
+                      m.c_basecode, m.c_metadataxml, m.c_facttablecolumn, m.c_tablename, m.c_columnname,
+                      m.c_columndatatype,
+                      m.c_operator, m.c_dimcode, m.c_comment, m.c_tooltip, m.m_applied_path, m.update_date,
+                      m.download_date,
+                      m.import_date, m.sourcesystem_cd, m.valuetype_cd, m.m_exclusion_cd, m.c_path, m.c_symbol,
+                      zname, flag)
         session.merge(me)
-    session.commit()
+        session.flush()
+        session.commit()
     session.close()
