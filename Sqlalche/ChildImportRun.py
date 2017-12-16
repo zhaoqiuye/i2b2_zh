@@ -46,16 +46,19 @@ def insertAllData(qlist):
                 en = EncounterMapping(ss.MrNum, ss.MrNum, ss.PatientId)
                 ob = ObservationFacts(ss.MrNum, ss.PatientId, 'ICD9:038', 'LCS-I2B2:PEDIATRIC')
                 obsex = ObservationFacts(ss.MrNum, ss.PatientId, 'DEM|SEX:m', 'LCS-I2B2:PEDIATRIC')
+                oblive = ObservationFacts(ss.MrNum, ss.PatientId, 'DEM|VITAL:n', 'LCS-I2B2:PEDIATRIC')
                 if ss.Sex == '2':
                     obsex = ObservationFacts(ss.MrNum, ss.PatientId, 'DEM|SEX:f', 'LCS-I2B2:PEDIATRIC')
                 patientDimension = PatientDimension(ss.PatientId, ss.Birthday, ss.Sex, ss.Age)
                 session.merge(en)
                 session.merge(ob)
                 session.merge(obsex)
+                session.merge(oblive)
                 session.merge(patientDimension)
                 session.flush()
             session.commit()
             session.close()
+
     except:
         session.rollback()
 
