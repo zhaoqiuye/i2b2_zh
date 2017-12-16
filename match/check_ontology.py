@@ -44,7 +44,7 @@ def exp1():
     list=refSet.intersect(testSet)
     for ref in list:
         print ref
-        insertMeciData(Mecidine(ref,ref,'best match'))
+        insertMeciData(ref)
 
 def exp2():
     """
@@ -58,5 +58,4 @@ def exp2():
 
 if __name__ == '__main__':
     import sys
-
     exec '%s()' % sys.argv[1]

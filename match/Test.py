@@ -1,18 +1,17 @@
 # encoding: utf-8
 import sys
 
+from sqlalchemy.dialects.postgresql import TIMESTAMP
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 
 reload(sys)
 sys.setdefaultencoding('utf8')
 from sqlalchemy import create_engine, Column, String, Integer, Text, TIMESTAMP
 
-enginepsqli2b2 = create_engine("postgresql://postgres:postgres@localhost:5432/i2b2metadata", max_overflow=5,
+from sqlalchemy.orm import sessionmaker
+
+enginepsqli2b2 = create_engine("postgresql://postgres:postgres@192.168.249.131:5432/i2b2metadata", max_overflow=5,
                                encoding='utf8', echo=True)
-enginepsqlChinese = create_engine("postgresql://postgres:postgres@localhost:5432/medicine", max_overflow=5,
-                                  encoding='utf8',
-                                  echo=True)
 Base = declarative_base()
 
 
@@ -81,61 +80,17 @@ class Mecidine(Base):
         self.c_path=c_path
         self.c_symbol=c_symbol
 
-class ChinesePharma(Base):
-    __tablename__ = 'ChinesePharma'
-
-    m_name = Column(String(255), primary_key=True)
-    type = Column(String(255))
-
-
-def queryMeciData():
-    """
-    查询metadata数据
-    :rtype: object
-    :return:
-    """
-    print "query start ...."
-    DBSession = sessionmaker(bind=enginepsqli2b2)
-    session = DBSession()
-    alist = session.query(Mecidine).filter(Mecidine.c_fullname.like('%Medications%')).all()
-    qlist = []
-    for qs in alist:
-        qlist.append(qs.c_name)
-    print "元素数量%s" % len(qlist)
-    session.commit()
-    session.close()
-    return qlist
-
-
-def queryChineseData():
-    """
-    查询中国药典数据
-    :rtype: object
-    :return:
-    """
-    print "query start ...."
-    DBSession = sessionmaker(bind=enginepsqlChinese)
-    session = DBSession()
-    alist = session.query(ChinesePharma).all()
-    qlist = []
-    for qs in alist:
-        qlist.append(qs.m_name)
-    session.commit()
-    session.close()
-    return qlist
-
-
-def insertMeciData(cName):
+def insertMeciData():
     """
     insert数据
     :param data:
     :param data:
     :return:
     """
-    print "update data start ...."
+    print "insert data start ...."
     DBSession = sessionmaker(bind=enginepsqli2b2)
     session = DBSession()
-    melist=session.query(Mecidine).filter(Mecidine.c_name==cName).all()
+    melist=session.query(Mecidine).filter(Mecidine.c_name=='59715').all()
     for m in melist:
         me=Mecidine(m.c_hlevel, m.c_name, m.c_fullname, m.c_synonym_cd, m.c_visualattributes, m.c_totalnum,
                  m.c_basecode, m.c_metadataxml, m.c_facttablecolumn, m.c_tablename, m.c_columnname, m.c_columndatatype,
@@ -145,3 +100,7 @@ def insertMeciData(cName):
         session.merge(me)
     session.commit()
     session.close()
+
+
+if __name__ == '__main__':
+    insertMeciData()
