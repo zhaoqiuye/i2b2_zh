@@ -4,7 +4,7 @@ import logging
 logging.basicConfig(filename='check.log', filemode='w', level=logging.DEBUG)
 logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s')
 from fuzzywuzzy import fuzz, process
-from MatchSet import queryChineseData, queryMeicData
+from MatchSet import queryChineseData, queryMeciData, insertMeciData, Mecidine
 
 if 1:
     """
@@ -13,7 +13,7 @@ if 1:
     # test_refSet=set([u"数据分析师", u"数据挖掘工程师", u"大数据开发工程师", u"机器学习工程师", u"算法工程师", u"数据库管理", u"商业分析师", u"数据科学家", u"首席数据官", u"数据产品经理", u"数据运营", u"大数据架构师"])
     # testSet = set([u"算法工程师", u"数据库管理", u"商业分析师", u"数据挖掘师"])
     test_refSet = set(queryChineseData())
-    testSet = set(queryMeicData())
+    testSet = set(queryMeciData())
 
 
 class RefSet(object):
@@ -41,8 +41,10 @@ def exp1():
     Find the items in a database that have exact matches in reference set.
     """
     refSet = RefSet()
-    refSet.intersect(testSet)
-
+    list=refSet.intersect(testSet)
+    for ref in list:
+        print ref
+        insertMeciData(Mecidine(ref,ref,'best match'))
 
 def exp2():
     """
