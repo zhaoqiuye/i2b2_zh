@@ -51,7 +51,7 @@ i2b2.events.afterLogin.subscribe(function(){
     });
 
     //改变密码弹出框
-    jQuery(".hd,#modifier-viewer-body tr td:even()").each(function(){
+    jQuery("#changepassword-viewer-panel .hd,#modifier-viewer-body tr td:even()").each(function(){
         translate(this);
     });
 
@@ -67,19 +67,29 @@ jQuery(document).ready(function(){
     });
 
     //点击插件按钮
+    let num = 1;
+    var flag = true;
     jQuery("#pluginsMenu").on("click",function(){
-        setTimeout("buttonExcute('.txtBoundBox div,#anaPluginCats option')",1);
+        num++;
+        if(num == 2){
+            setTimeout("buttonExcute('#anaPluginList .txtBoundBox div,#PluginListBox #anaPluginCats option,#anaPluginList .txtBoundBox.NAME')",.1);
+        }else if(num == 3){
+            setTimeout("buttonExcute('#anaPluginList .txtBoundBox div,#PluginListBox #anaPluginCats option,#anaPluginList .txtBoundBox.NAME')",.1);
+	        flag = false;
+        }
+
     });
 
-    var flag = true;
+    var flag1 = true;
     jQuery(".initialMsg a").on("click",function(){
         if(flag1){
-            jQuery(".txtBoundBox div,#anaPluginCats option,.txtBoundBox.NAME").each(function(){
+            jQuery("#anaPluginList .txtBoundBox div,#PluginListBox #anaPluginCats option,#anaPluginList .txtBoundBox.NAME").each(function(){
                 translate(this);
             });
-            flag = false;
+            flag1 = false;
         }
     });
+
     jQuery(".txtBoundBox.NAME").on("click",function(){
         jQuery(".txtBoundBox.NAME").each(function(){
             translate(this);
